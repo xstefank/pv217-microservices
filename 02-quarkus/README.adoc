@@ -1,0 +1,36 @@
+= Introduction to Quarkus
+
+== Quarkus getting started
+
+https://quarkus.io/
+
+=== 01 Prerequisites
+
+https://quarkus.io/get-started/
+
+1. Java IDE (Intellij Idea, Eclipse, VSCode)
+2. JDK 11+ (works also with JDK 8 but 11 or 14 (LTS) or later is preferred)
+3. Maven 3.6.2+
+4. _Optionally_ GraalVM 20.2.0 for native compilation
+
+=== 02 Your first Quarkus application
+
+Quarkus guide -- *https://quarkus.io/guides/getting-started*
+
+==== Abbreviations explanations
+
+* JAX-RS -- *Jakarta RESTful Web Services* (formerly Java API for RESTful Web Services)
+** https://github.com/eclipse-ee4j/jaxrs-api
+** https://en.wikipedia.org/wiki/Jakarta_RESTful_Web_Services#:~:text=Jakarta%20RESTful%20Web%20Services%2C%20(JAX,Transfer%20(REST)%20architectural%20pattern.&text=From%20version%201.1%20on%2C%20JAX,part%20of%20Java%20EE%206.
+** Tutorials
+*** https://www.javacodegeeks.com/jax-rs-tutorials
+*** annotations -- https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-annotations-explained/
+
+* CDI -- Contexts and Dependency Injection
+** http://www.cdi-spec.org/
+** https://en.wikipedia.org/wiki/Dependency_injection
+** https://quarkus.io/guides/cdi
+** Tutorials
+*** https://www.javacodegeeks.com/cdi-tutorials
+*** @Inject -- https://www.javacodegeeks.com/2013/05/java-ee-cdi-dependency-injection-inject-tutorial.html
+*** https://www.baeldung.com/java-ee-cdi
