@@ -15,7 +15,7 @@ https://quarkus.io/get-started/
 
 === 02 Your first Quarkus application
 
-Quarkus guide -- *https://quarkus.io/guides/getting-started*
+*Quarkus guide -- https://quarkus.io/guides/getting-started*
 
 ==== Abbreviations explanations
 
