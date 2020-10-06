@@ -48,5 +48,29 @@ https://quarkus.io/get-started/
 
 Files in the `src/main/docker` directory.
 
+=== 05 Communication between services
+
+1. Copy getting-started to getting-started-2
+2. Add new endpoint
+
+[source,java]
+----
+@GET
+@Path("/call")
+public void getHelloFromService2() {
+    Client client = ClientBuilder.newClient();
+
+    try {
+        Response response = client.target("http://localhost:8081/hello")
+            .request()
+            .get();
+
+        System.out.printf("Status: %d%nHeaders: %s%nBody: %s%n",
+            response.getStatus(), response.getHeaders(), response.readEntity(String.class));
+    } finally {
+        client.close();
+    }
+}
+----
 
 
