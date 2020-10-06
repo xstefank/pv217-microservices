@@ -44,4 +44,9 @@ https://quarkus.io/get-started/
 
 *Quarkus guide -- https://quarkus.io/guides/building-native-image*
 
+=== 04 Docker/Podman
+
+Files in the `src/main/docker` directory.
+
+
 
