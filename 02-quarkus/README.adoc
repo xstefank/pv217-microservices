@@ -1,5 +1,9 @@
 = Introduction to Quarkus
 
+== Why Quarkus?
+
+https://twitter.com/sjmaple/status/1311948364871864321
+
 == Quarkus getting started
 
 https://quarkus.io/
