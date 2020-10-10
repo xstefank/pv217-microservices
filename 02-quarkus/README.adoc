@@ -67,3 +67,5 @@ Files in the `src/main/docker` directory.
 kubectl expose deployment kubernetes-quickstart --type=NodePort --name=k-e-nodeport
 minikube service list
 ----
+
+This is added automatically with quarkus-minikube extension.
