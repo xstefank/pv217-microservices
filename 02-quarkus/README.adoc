@@ -56,7 +56,7 @@ Files in the `src/main/docker` directory.
 
 2. Quarkus guides
 ** Kubernetes/Minikube - https://quarkus.io/guides/deploying-to-kubernetes
-** Openshift/CRC -
+** Openshift/CRC - https://quarkus.io/guides/deploying-to-openshift
 
 === Minikube additional comments
 
