@@ -69,3 +69,21 @@ minikube service list
 ----
 
 This is added automatically with quarkus-minikube extension.
+
+=== CRC additional comments
+
+==== unable to find valid certification path to requested target
+
+If you run into following error:
+
+[source,bash]
+----
+[ERROR] Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+----
+
+then you can add `quarkus.kubernetes-client.trust-certs=true` to your `application.properties` to fix it.
+
+=== S2I isn't working (Build and Deploy (in separate steps))
+
+Currently, seems like a bug filed at https://github.com/quarkusio/quarkus/issues/12649. Use
+`./mvnw clean package -Dquarkus.kubernetes.deploy=true`.
