@@ -1,11 +1,5 @@
-
-- 2nd lecture - introduction to Quarkus, HTTP, REST, communication
-between services, Docker/Podman
-
-- 3rd lecture - CDI (context and dependency injection), microservices
-configuration, health, metrics, API design and contract definition,
-fault tolerance, request tracing, security with JWT (JSON web
-token),
-
-- 4th lecture - Openshift, deployment to CRC, scaling of services, and
-optionally reactive services and Kafka
+- 3rd lecture - general microservices intro
+- 4th lecture - Quarkus intro, Docker/Podman,
+and Kubernetes/Openshift
+- 5th lecture - DB connection with Panache, MicroProfile
+- 6th lecture - MicroProfile advanced, reactive programming, (Kafka)
