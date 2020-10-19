@@ -34,10 +34,17 @@ CRC VM:          Running
 OpenShift:       Running (v4.5.4)
 ...
 
-crc console
+$ crc console
 
 
+$ minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+...
 
+$ minikube dashboard
 ----
 
 
