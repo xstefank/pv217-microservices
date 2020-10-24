@@ -8,17 +8,7 @@ https://twitter.com/sjmaple/status/1311948364871864321
 
 https://quarkus.io/
 
-== 01 Prerequisites
-
-https://quarkus.io/get-started/
-
-1. Java IDE (Intellij Idea, Eclipse, VSCode)
-2. JDK 11+ (works also with JDK 8 but 11 or 14 (LTS) or later is preferred)
-3. Maven 3.6.2+
-4. _Optionally_ GraalVM 20.2.0 for native compilation (version to match Java above)
-5. Docker or Podman
-
-== 02 Your first Quarkus application
+== 01 Your first Quarkus application
 
 *Quarkus guide -- https://quarkus.io/guides/getting-started*
 
@@ -40,15 +30,15 @@ https://quarkus.io/get-started/
 *** @Inject -- https://www.javacodegeeks.com/2013/05/java-ee-cdi-dependency-injection-inject-tutorial.html
 *** https://www.baeldung.com/java-ee-cdi
 
-== 03 Native executable
+== 02 Native executable
 
 *Quarkus guide -- https://quarkus.io/guides/building-native-image*
 
-== 04 Docker/Podman
+== 03 Docker/Podman
 
 Files in the `src/main/docker` directory.
 
-== 05 Kubernetes/Openshift deployment
+== 04 Kubernetes/Openshift deployment
 
 1. Start Minikube or CRC on your local machine
 ** https://minikube.sigs.k8s.io/docs/start/
