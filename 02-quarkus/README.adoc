@@ -8,6 +8,8 @@ https://twitter.com/sjmaple/status/1311948364871864321
 
 https://quarkus.io/
 
+https://quarkusio.zulipchat.com/login/
+
 == 01 Your first Quarkus application
 
 *Quarkus guide -- https://quarkus.io/guides/getting-started*
