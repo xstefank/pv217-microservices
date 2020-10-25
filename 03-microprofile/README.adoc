@@ -2,7 +2,24 @@
 
 == 01 What is MicroProfile?
 
-== 02 Communication between services
+https://microprofile.io/
+
+== 02 JAX-RS and CDI recap
+
+https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
+
+== 03 JSON-B
+
+* Tutorial https://www.baeldung.com/java-json-binding-api
+** in Quarkus you don't need anything else then quarkus-jsonb extension
+* https://github.com/eclipse-ee4j/jsonb-api
+* http://json-b.net/
+
+== 04 JSON-P
+
+* https://www.baeldung.com/jee7-json
+
+== 03 Communication between services
 
 1. Copy getting-started to getting-started-2
 2. Add new endpoint
