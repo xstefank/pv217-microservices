@@ -8,16 +8,23 @@ https://microprofile.io/
 
 https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
 
+https://quarkus.io/guides/rest-json#whats-different-from-jakarta-ee-development
+
 == 03 JSON-B
 
-* Tutorial https://www.baeldung.com/java-json-binding-api
+https://quarkus.io/guides/rest-json
+
+* Tutorial - https://www.baeldung.com/java-json-binding-api
 ** in Quarkus you don't need anything else then quarkus-jsonb extension
-* https://github.com/eclipse-ee4j/jsonb-api
+* Specification - https://github.com/eclipse-ee4j/jsonb-api
 * http://json-b.net/
 
 == 04 JSON-P
 
-* https://www.baeldung.com/jee7-json
+* Tutorial - https://www.baeldung.com/jee7-json
+* Specification - https://github.com/eclipse-ee4j/jsonp
+* https://eclipse-ee4j.github.io/jsonp/
+
 
 == 03 Communication between services
 
