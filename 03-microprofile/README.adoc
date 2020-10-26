@@ -26,7 +26,14 @@ https://quarkus.io/guides/rest-json
 * https://eclipse-ee4j.github.io/jsonp/
 
 
-== 03 Communication between services
+== 03 MicroProfile Config
+
+Quarkus guide - https://quarkus.io/guides/config
+
+
+
+
+== TBD Communication between services
 
 1. Copy getting-started to getting-started-2
 2. Add new endpoint
