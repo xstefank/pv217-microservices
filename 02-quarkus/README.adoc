@@ -40,6 +40,11 @@ https://quarkusio.zulipchat.com/login/
 
 Files in the `src/main/docker` directory.
 
+Tutorials:
+
+* the one I did, great course worth the money - https://www.udemy.com/course/docker-mastery/
+* https://www.tutorialspoint.com/docker/index.htm
+
 == 04 Kubernetes/Openshift deployment
 
 1. Start Minikube or CRC on your local machine
