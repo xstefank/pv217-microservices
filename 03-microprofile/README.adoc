@@ -29,7 +29,8 @@ https://quarkus.io/guides/rest-json
 == 03 MicroProfile Config
 
 Quarkus guide - https://quarkus.io/guides/config
-
+Spec - https://github.com/eclipse/microprofile-config
+Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
 
 
