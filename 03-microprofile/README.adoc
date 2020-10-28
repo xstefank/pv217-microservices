@@ -32,6 +32,11 @@ Quarkus guide - https://quarkus.io/guides/config
 Spec - https://github.com/eclipse/microprofile-config
 Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
+== 04 MicroProfile Health
+
+Quarkus guide - https://quarkus.io/guides/microprofile-health
+Spec - https://github.com/eclipse/microprofile-health
+Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.adoc
 
 
 == TBD Communication between services
