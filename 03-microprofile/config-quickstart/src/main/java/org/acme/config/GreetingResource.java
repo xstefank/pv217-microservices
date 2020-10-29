@@ -1,5 +1,6 @@
 package org.acme.config;
 
+import io.quarkus.arc.config.ConfigPrefix;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -67,6 +68,22 @@ public class GreetingResource {
     public void configPropertiesPublicFields() {
         System.out.println(greetingConfigurationPublicFields.message + " " + greetingConfigurationPublicFields.name.orElse("world") + greetingConfigurationPublicFields.suffix);
         System.out.println(greetingConfigurationPublicFields.content.prizeAmount + " " + greetingConfigurationPublicFields.content.recipients);
+    }
+
+    /*different prefixes*/
+
+    @Inject
+    GreetingConfiguration greetingConfigurationPrefixGreeting;
+
+    @Inject
+    @ConfigPrefix("other")
+    GreetingConfiguration greetingConfigurationPrefixOther;
+
+    @GET
+    @Path("different-prefixes")
+    public void differentPrefixes() {
+        System.out.println(greetingConfigurationPrefixGreeting.getMessage());
+        System.out.println(greetingConfigurationPrefixOther.getMessage());
     }
 
 }
