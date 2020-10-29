@@ -1,6 +1,7 @@
 package org.acme.config;
 
 import io.quarkus.arc.config.ConfigPrefix;
+import org.acme.config.custom.MicroProfileCustomValue;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -86,4 +87,14 @@ public class GreetingResource {
         System.out.println(greetingConfigurationPrefixOther.getMessage());
     }
 
+    /*custom converter*/
+
+    @ConfigProperty(name = "custom.value")
+    MicroProfileCustomValue customValue;
+
+    @GET
+    @Path("/custom-converter")
+    public void customConverter() {
+        System.out.println(customValue);
+    }
 }
