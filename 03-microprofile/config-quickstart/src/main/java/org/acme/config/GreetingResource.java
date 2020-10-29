@@ -59,4 +59,14 @@ public class GreetingResource {
         System.out.println(greetingConfigurationInterface.message() + " " + greetingConfigurationInterface.getName().orElse("world") + greetingConfigurationInterface.getSuffix());
     }
 
+    @Inject
+    GreetingConfigurationPublicFields greetingConfigurationPublicFields;
+
+    @GET
+    @Path("/config-properties-public-fields")
+    public void configPropertiesPublicFields() {
+        System.out.println(greetingConfigurationPublicFields.message + " " + greetingConfigurationPublicFields.name.orElse("world") + greetingConfigurationPublicFields.suffix);
+        System.out.println(greetingConfigurationPublicFields.content.prizeAmount + " " + greetingConfigurationPublicFields.content.recipients);
+    }
+
 }
