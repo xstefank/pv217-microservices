@@ -61,6 +61,12 @@ Grafana
 docker run --rm -p 3000:3000 --network host grafana/grafana:6.4.4
 ----
 
+== 06 MicroProfile OpenAPI
+
+Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
+Spec - https://github.com/eclipse/microprofile-open-api
+Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
+
 == TBD Communication between services
 
 1. Copy getting-started to getting-started-2
