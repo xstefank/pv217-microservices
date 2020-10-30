@@ -43,6 +43,23 @@ Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/m
 Quarkus guide - https://quarkus.io/guides/microprofile-metrics
 Spec - https://github.com/eclipse/microprofile-metrics
 Spec doc - https://github.com/eclipse/microprofile-metrics/blob/master/spec/src/main/asciidoc/metrics_spec.adoc
+More detailed metrics quickstart - https://github.com/wildfly/quickstart/tree/master/microprofile-metrics
+
+Prometheus
+
+[source,bash]
+----
+docker run --rm --name prometheus -p 9090:9090 --network host \
+-v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml:Z prom/prometheus:v2.14.0 \
+--config.file=/etc/prometheus/prometheus.yml
+----
+
+Grafana
+
+[source,bash]
+----
+
+----
 
 == TBD Communication between services
 
