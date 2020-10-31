@@ -67,6 +67,16 @@ Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 Spec - https://github.com/eclipse/microprofile-open-api
 Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
 
+== 07 JAX-RS REST client
+
+Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+
+== 08 MP REST client
+
+Quarkus guide - https://quarkus.io/guides/rest-client
+Spec - https://github.com/eclipse/microprofile-rest-client
+Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client.asciidoc
+
 == TBD Communication between services
 
 1. Copy getting-started to getting-started-2
