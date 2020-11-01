@@ -67,3 +67,25 @@ Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 Spec - https://github.com/eclipse/microprofile-open-api
 Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
 
+== 07 DB utilization with Panache
+
+=== 7a Panache with the relational DB (PostgreSQL)
+
+Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
+JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
+
+To run PostgreSQL locally:
+
+[source,bash]
+----
+mkdir -p ${HOME}/postgres-data
+
+docker run --rm \
+        --name dev-postgres \
+        -e POSTGRES_PASSWORD=pass \
+        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
+        -p 5432:5432 \
+        postgres
+----
+
+
