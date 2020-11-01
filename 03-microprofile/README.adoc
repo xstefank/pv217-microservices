@@ -88,4 +88,36 @@ docker run --rm \
         postgres
 ----
 
+Testing
+
+Add following dependencies:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-panache-mock</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-test-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-jdbc-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+And following configuration:
+
+[source,bash]
+----
+%test.quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:test
+%test.quarkus.datasource.db-kind=h2
+----
+
+This will configure embedded H2 database for tests.
 
