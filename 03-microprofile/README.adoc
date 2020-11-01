@@ -111,12 +111,31 @@ Add following dependencies:
 </dependency>
 ----
 
+Note for repository pattern use this instead of `quarkus-panache-mock`:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-junit5-mockito</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
 And following configuration:
 
 [source,bash]
 ----
 %test.quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:test
 %test.quarkus.datasource.db-kind=h2
+----
+
+And to your `@QuarkusTest` class add:
+
+[source,java]
+----
+@QuarkusTest
+@QuarkusTestResource(H2DatabaseTestResource.class)
 ----
 
 This will configure embedded H2 database for tests.
