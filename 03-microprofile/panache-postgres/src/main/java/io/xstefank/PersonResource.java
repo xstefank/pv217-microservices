@@ -1,5 +1,7 @@
 package io.xstefank;
 
+import io.quarkus.panache.common.Parameters;
+import io.quarkus.panache.common.Sort;
 import io.xstefank.entity.Person;
 import io.xstefank.entity.Status;
 
@@ -12,6 +14,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/person")
 public class PersonResource {
