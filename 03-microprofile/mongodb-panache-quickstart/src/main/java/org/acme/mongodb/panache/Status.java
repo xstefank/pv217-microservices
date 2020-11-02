@@ -1,4 +1,4 @@
-package org.acme.mongodb.panache.entity;
+package org.acme.mongodb.panache;
 
 public enum Status {
     Alive,

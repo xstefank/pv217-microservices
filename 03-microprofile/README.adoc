@@ -164,5 +164,8 @@ Connect client:
 mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
 ----
 
-WARNING: Currently not working, blocked by https://github.com/quarkusio/quarkus/issues/12514.
+NOTE: Use the `admin` database. Otherwise the client can't authenticate.
 
+== 8 Testing in Quarkus
+
+Tutorial - https://www.baeldung.com/java-quarkus-testing
