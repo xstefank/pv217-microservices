@@ -6,13 +6,13 @@ https://microprofile.io/
 
 == 02 JAX-RS and CDI recap
 
-https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
+* https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
 
-https://quarkus.io/guides/rest-json#whats-different-from-jakarta-ee-development
+* https://quarkus.io/guides/rest-json#whats-different-from-jakarta-ee-development
 
 == 03 JSON-B
 
-https://quarkus.io/guides/rest-json
+* https://quarkus.io/guides/rest-json
 
 * Tutorial - https://www.baeldung.com/java-json-binding-api
 ** in Quarkus you don't need anything else then quarkus-jsonb extension
@@ -25,27 +25,26 @@ https://quarkus.io/guides/rest-json
 * Specification - https://github.com/eclipse-ee4j/jsonp
 * https://eclipse-ee4j.github.io/jsonp/
 
-
 == 03 MicroProfile Config
 
-Quarkus guide - https://quarkus.io/guides/config
-Spec - https://github.com/eclipse/microprofile-config
-Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
+* Quarkus guide - https://quarkus.io/guides/config
+* Spec - https://github.com/eclipse/microprofile-config
+* Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
 == 04 MicroProfile Health
 
-Quarkus guide - https://quarkus.io/guides/microprofile-health
-Spec - https://github.com/eclipse/microprofile-health
-Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.adoc
+* Quarkus guide - https://quarkus.io/guides/microprofile-health
+* Spec - https://github.com/eclipse/microprofile-health
+* Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.adoc
 
 == 05 MicroProfile Metrics
 
-Quarkus guide - https://quarkus.io/guides/microprofile-metrics
-Spec - https://github.com/eclipse/microprofile-metrics
-Spec doc - https://github.com/eclipse/microprofile-metrics/blob/master/spec/src/main/asciidoc/metrics_spec.adoc
-More detailed metrics quickstart - https://github.com/wildfly/quickstart/tree/master/microprofile-metrics
+* Quarkus guide - https://quarkus.io/guides/microprofile-metrics
+* Spec - https://github.com/eclipse/microprofile-metrics
+* Spec doc - https://github.com/eclipse/microprofile-metrics/blob/master/spec/src/main/asciidoc/metrics_spec.adoc
+* More detailed metrics quickstart - https://github.com/wildfly/quickstart/tree/master/microprofile-metrics
 
-Prometheus
+**Prometheus**
 
 [source,bash]
 ----
@@ -54,7 +53,7 @@ docker run --rm --name prometheus -p 9090:9090 --network host \
 --config.file=/etc/prometheus/prometheus.yml
 ----
 
-Grafana
+**Grafana**
 
 [source,bash]
 ----
@@ -63,16 +62,16 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:6.4.4
 
 == 06 MicroProfile OpenAPI
 
-Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
-Spec - https://github.com/eclipse/microprofile-open-api
-Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
+* Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
+* Spec - https://github.com/eclipse/microprofile-open-api
+* Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
 
 == 07 DB utilization with Panache
 
 === 7a Panache with the relational DB (PostgreSQL)
 
-Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
-JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
+* Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
+* JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
 
 To run PostgreSQL locally:
 
@@ -86,6 +85,13 @@ docker run --rm \
         -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
         -p 5432:5432 \
         postgres
+----
+
+And to connect the client:
+
+[source,bash]
+----
+psql -h localhost -U postgres
 ----
 
 ==== Testing
