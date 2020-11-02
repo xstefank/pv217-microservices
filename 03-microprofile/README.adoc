@@ -140,3 +140,29 @@ And to your `@QuarkusTest` class add:
 
 This will configure embedded H2 database for tests.
 
+=== 7b Panache with the NoSQL DB (MongoDB)
+
+Quarkus guide - https://quarkus.io/guides/mongodb-panache
+
+To run MongoDB locally:
+
+[source,bash]
+----
+docker run --rm \
+        --name dev-mongo \
+        -e MONGO_INITDB_ROOT_USERNAME=mongo \
+        -e MONGO_INITDB_ROOT_PASSWORD=pass \
+        -v ${HOME}/mongo-data:/data/db/:Z \
+        -p 27017:27017 \
+        mongo
+----
+
+Connect client:
+
+[source,bash]
+----
+mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
+----
+
+WARNING: Currently not working, blocked by https://github.com/quarkusio/quarkus/issues/12514.
+
