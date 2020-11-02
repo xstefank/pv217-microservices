@@ -182,6 +182,10 @@ mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
 
 NOTE: Use the `admin` database. Otherwise the client can't authenticate.
 
+NOTE: Because of https://github.com/quarkusio/quarkus/issues/12514 you need to keep
+the entity classes in the same package as the classes that operates on them (e.g.,
+the REST resources).
+
 == 8 Testing in Quarkus
 
 Tutorial - https://www.baeldung.com/java-quarkus-testing
