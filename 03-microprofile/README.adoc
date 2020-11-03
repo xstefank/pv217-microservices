@@ -14,6 +14,8 @@ docker pull mongo
 
 https://microprofile.io/
 
+https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
+
 == 02 JAX-RS and CDI recap
 
 * https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
