@@ -4,7 +4,7 @@
 
 [source,bash]
 ----
-docker pull prometheus:v2.14.0
+docker pull prom/prometheus:v2.14.0
 docker pull grafana/grafana:6.4.4
 docker pull postgres
 docker pull mongo
