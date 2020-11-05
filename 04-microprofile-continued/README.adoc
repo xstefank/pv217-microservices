@@ -1,10 +1,133 @@
 = MicroProfile continued
 
-== 01 JAX-RS REST client
+== Prerequisites
+
+[source,bash]
+----
+docker pull postgres
+docker pull mongo
+----
+
+== 01 DB utilization with Panache
+
+=== 1a Panache with the relational DB (PostgreSQL)
+
+* Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
+* JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
+
+To run PostgreSQL locally:
+
+[source,bash]
+----
+mkdir -p ${HOME}/postgres-data
+
+docker run --rm \
+        --name dev-postgres \
+        -e POSTGRES_PASSWORD=pass \
+        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
+        -p 5432:5432 \
+        postgres
+----
+
+And to connect the client:
+
+[source,bash]
+----
+psql -h localhost -U postgres
+----
+
+==== Testing
+
+Add following dependencies:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-panache-mock</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-test-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-jdbc-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+Note for repository pattern use this instead of `quarkus-panache-mock`:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-junit5-mockito</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+And following configuration:
+
+[source,bash]
+----
+%test.quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:test
+%test.quarkus.datasource.db-kind=h2
+----
+
+And to your `@QuarkusTest` class add:
+
+[source,java]
+----
+@QuarkusTest
+@QuarkusTestResource(H2DatabaseTestResource.class)
+----
+
+This will configure embedded H2 database for tests.
+
+=== 1b Panache with the NoSQL DB (MongoDB)
+
+Quarkus guide - https://quarkus.io/guides/mongodb-panache
+
+To run MongoDB locally:
+
+[source,bash]
+----
+docker run --rm \
+        --name dev-mongo \
+        -e MONGO_INITDB_ROOT_USERNAME=mongo \
+        -e MONGO_INITDB_ROOT_PASSWORD=pass \
+        -v ${HOME}/mongo-data:/data/db/:Z \
+        -p 27017:27017 \
+        mongo
+----
+
+Connect client:
+
+[source,bash]
+----
+mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
+----
+
+NOTE: Use the `admin` database. Otherwise the client can't authenticate.
+
+NOTE: Because of https://github.com/quarkusio/quarkus/issues/12514 you need to keep
+the entity classes in the same package as the classes that operates on them (e.g.,
+the REST resources).
+
+== 02 Testing in Quarkus
+
+Tutorial - https://www.baeldung.com/java-quarkus-testing
+
+
+== 03 JAX-RS REST client
 
 Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
 
-== 02 MP REST client
+== 04 MP REST client
 
 Quarkus guide - https://quarkus.io/guides/rest-client
 Spec - https://github.com/eclipse/microprofile-rest-client
