@@ -88,6 +88,12 @@ And to your `@QuarkusTest` class add:
 
 This will configure embedded H2 database for tests.
 
+**Additional note:** The quarkus quickstart repository contains embedded docker plugin
+congfiguration - https://github.com/quarkusio/quarkus-quickstarts/blob/master/hibernate-orm-panache-quickstart/pom.xml#L98.
+This didn't work for me with Podman. If anyone will be successful with Docker
+please let me know.
+
+
 === 1b Panache with the NoSQL DB (MongoDB)
 
 Quarkus guide - https://quarkus.io/guides/mongodb-panache
