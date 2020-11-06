@@ -139,3 +139,9 @@ Quarkus guide - https://quarkus.io/guides/rest-client
 Spec - https://github.com/eclipse/microprofile-rest-client
 Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client.asciidoc
 
+== 05 MP Fault Tolerance
+
+Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+Spec - https://github.com/eclipse/microprofile-fault-tolerance
+Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
+
