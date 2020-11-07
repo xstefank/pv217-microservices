@@ -1,0 +1,15 @@
+executing mvnw instead of mvn
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.acme:security-jwt-quickstart >------------------
+[INFO] Building security-jwt-quickstart 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:3.0.0:java (default-cli) @ security-jwt-quickstart ---
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsInVwbiI6Impkb2VAcXVhcmt1cy5pbyIsImdyb3VwcyI6WyJVc2VyIiwiQWRtaW4iXSwiYmlydGhkYXRlIjoiMjAwMS0wNy0xMyIsImlhdCI6MTYwNDc2NTg1NCwiZXhwIjoxNjA0NzY2MTU0LCJqdGkiOiJMT3RGR05uVTVtQWhzOVVxQW5CdnV3In0.VvkzKeizIWbNuWsVi4wMkfYtBHlqK0UACfl4C0m8wfGlEpuLKJ-rZNpBPMRJ--HD_gmLmtbhQSo5mnvOJ1fJj9J6YfxSIUm5KH_vkUvRhS-wH3qh-VWqWtG2MxDuhU0oFtgfnEey97S8V6tIz-z9fXbfKJ7pJQJOIHAerFv7pXNsJn5z0Tv9SAt1zsyCxhDrSt3PehbzBhFZI5TgKuGtTnGlfoRDfonwGpwhpBlnki9kNL5C7ZmSu2ywvFxkypvIxQztt2p7Flf3hPV3e39EF-Wtuj2INP9yKPlLud-180MTsYlRBHEAfPWaQ8a3I6H25EfmrmdWLhiJxOXABfZRyA
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.083 s
+[INFO] Finished at: 2020-11-07T17:17:35+01:00
+[INFO] ------------------------------------------------------------------------
