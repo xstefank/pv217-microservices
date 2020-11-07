@@ -145,3 +145,9 @@ Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
 Spec - https://github.com/eclipse/microprofile-fault-tolerance
 Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
 
+== 06 MP JWT Auth
+
+Quarkus guide - https://quarkus.io/guides/security-jwt
+Spec - https://github.com/eclipse/microprofile-jwt-auth
+Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
+
