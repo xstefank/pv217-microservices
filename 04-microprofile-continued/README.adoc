@@ -126,33 +126,32 @@ the REST resources).
 
 == 02 Testing in Quarkus
 
-Tutorial - https://www.baeldung.com/java-quarkus-testing
-
+* Tutorial - https://www.baeldung.com/java-quarkus-testing
 
 == 03 JAX-RS REST client
 
-Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+* Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
 
 == 04 MP REST client
 
-Quarkus guide - https://quarkus.io/guides/rest-client
-Spec - https://github.com/eclipse/microprofile-rest-client
-Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client.asciidoc
+* Quarkus guide - https://quarkus.io/guides/rest-client
+* Spec - https://github.com/eclipse/microprofile-rest-client
+* Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client.asciidoc
 
 == 05 MP Fault Tolerance
 
-Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
-Spec - https://github.com/eclipse/microprofile-fault-tolerance
-Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
+* Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+* Spec - https://github.com/eclipse/microprofile-fault-tolerance
+* Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
 
 == 06 MP JWT Auth
 
-Quarkus guide - https://quarkus.io/guides/security-jwt
-Spec - https://github.com/eclipse/microprofile-jwt-auth
-Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
+* Quarkus guide - https://quarkus.io/guides/security-jwt
+* Spec - https://github.com/eclipse/microprofile-jwt-auth
+* Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
 
-Advanced
+**Advanced**
 
-https://quarkus.io/guides/security-openid-connect
-https://quarkus.io/guides/security-keycloak-authorization
+* https://quarkus.io/guides/security-openid-connect
+* https://quarkus.io/guides/security-keycloak-authorization
 
