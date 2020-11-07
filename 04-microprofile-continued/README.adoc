@@ -151,3 +151,8 @@ Quarkus guide - https://quarkus.io/guides/security-jwt
 Spec - https://github.com/eclipse/microprofile-jwt-auth
 Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
 
+Advanced
+
+https://quarkus.io/guides/security-openid-connect
+https://quarkus.io/guides/security-keycloak-authorization
+
