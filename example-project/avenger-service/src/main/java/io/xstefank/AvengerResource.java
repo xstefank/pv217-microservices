@@ -5,6 +5,7 @@ import io.xstefank.entity.Avenger;
 import io.xstefank.service.AvengerService;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.JsonObject;
@@ -54,6 +55,7 @@ public class AvengerResource {
 
     @DELETE
     @Path("/{id}/delete")
+    @RolesAllowed("Admin")
     public Response deleteAvenger(@PathParam long id) {
         Avenger avenger;
 
