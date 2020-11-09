@@ -1,9 +1,12 @@
 package io.xstefank.service;
 
+import io.xstefank.client.SnapRESTClient;
 import io.xstefank.entity.Avenger;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.transaction.Transactional;
 import javax.ws.rs.NotFoundException;
@@ -13,8 +16,16 @@ public class AvengerService {
 
     private Logger log = Logger.getLogger(AvengerService.class);
 
+    @Inject
+    @RestClient
+    SnapRESTClient snapRESTClient;
+
     @Transactional
     public Avenger createAvenger(Avenger avenger) {
+        boolean snapped = snapRESTClient.shouldBeSnapped(avenger);
+        System.out.println(snapped);
+        avenger.snapped = snapped;
+
         avenger.persist();
         return avenger;
     }
