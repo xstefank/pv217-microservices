@@ -4,7 +4,7 @@ import javax.enterprise.context.RequestScoped;
 import java.util.Random;
 
 @RequestScoped
-public class SnapService {
+public class SnapGenerator {
 
     private Random random = new Random();
 

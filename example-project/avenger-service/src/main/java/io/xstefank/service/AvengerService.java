@@ -23,7 +23,6 @@ public class AvengerService {
     @Transactional
     public Avenger createAvenger(Avenger avenger) {
         boolean snapped = snapRESTClient.shouldBeSnapped(avenger);
-        System.out.println(snapped);
         avenger.snapped = snapped;
 
         avenger.persist();
