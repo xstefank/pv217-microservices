@@ -4,3 +4,7 @@
 
 ==  01 MP OpenTracing
 
+* Quarkus guide - https://quarkus.io/guides/opentracing
+* Spec - https://github.com/eclipse/microprofile-opentracing
+* Spec doc - https://github.com/eclipse/microprofile-opentracing/blob/master/spec/src/main/asciidoc/microprofile-opentracing.asciidoc
+
