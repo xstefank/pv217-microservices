@@ -37,3 +37,53 @@ public String doCall() {
 }
 ----
 
+== 02 MP Reactive messaging & Apache Kafka
+
+* Quarkus guide - https://quarkus.io/guides/kafka
+* Spec - https://github.com/eclipse/microprofile-reactive-messaging
+* Spec doc - https://github.com/eclipse/microprofile-reactive-messaging/blob/master/spec/src/main/asciidoc/microprofile-reactive-messaging-spec.asciidoc#microprofile-reactive-messaging
+
+**Additional**
+
+* Quarkus getting started with reactive - https://quarkus.io/guides/getting-started-reactive
+* Apache Kafka - https://kafka.apache.org/quickstart
+
+**Comments**
+
+Deploying kafka with `podman-compose` doesn't read environment variables
+correctly. Use this `docker-compose.yaml` with inlined environment overrides:
+
+[source,yaml]
+----
+version: '2'
+
+services:
+
+  zookeeper:
+    image: strimzi/kafka:0.19.0-kafka-2.5.0
+    command: [
+        "sh", "-c",
+        "bin/zookeeper-server-start.sh config/zookeeper.properties"
+    ]
+    ports:
+      - "2181:2181"
+    environment:
+      LOG_DIR: /tmp/logs
+
+  kafka:
+    image: strimzi/kafka:0.19.0-kafka-2.5.0
+    command: [
+        "sh", "-c",
+        "bin/kafka-server-start.sh config/server.properties --override listeners=PLAINTEXT://0.0.0.0:9092 --override advertised.listeners=PLAINTEXT://localhost:9092 --override zookeeper.connect=zookeeper:2181"
+    ]
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      LOG_DIR: "/tmp/logs"
+----
+
+
+
+
