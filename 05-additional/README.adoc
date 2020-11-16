@@ -85,6 +85,14 @@ services:
       LOG_DIR: "/tmp/logs"
 ----
 
+To create same Kafka topic as is being used in the presentations use this command:
+
+[source,bash]
+----
+kafka_2.13-2.6.0/bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 4 --replication-factor 1 --topic news
+----
+
+Kafka can be downloaded from https://www.apache.org/dyn/closer.cgi?path=/kafka/2.6.0/kafka_2.13-2.6.0.tgz
 
 
 
