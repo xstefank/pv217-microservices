@@ -47,6 +47,7 @@ public String doCall() {
 
 * Quarkus getting started with reactive - https://quarkus.io/guides/getting-started-reactive
 * Apache Kafka - https://kafka.apache.org/quickstart
+* My reactive talk - youtube.com/watch?v=eZYEgMHVFPU
 
 **Comments**
 
