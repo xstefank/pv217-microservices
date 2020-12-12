@@ -8,6 +8,6 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
-  - job_name: 'prime-checker'
+  - job_name: 'example-project'
     static_configs:
       - targets: ['localhost:8080', 'localhost:8081', 'localhost:8082']
