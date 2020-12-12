@@ -26,7 +26,6 @@ public class SnapRepository implements PanacheMongoRepository<Snap> {
             unsnapped.avengers = new ArrayList<>();
             persistOrUpdate(unsnapped);
         }
-        System.out.println("Asdf");
     }
 
     public Snap findBySnapped(boolean snapped) {
