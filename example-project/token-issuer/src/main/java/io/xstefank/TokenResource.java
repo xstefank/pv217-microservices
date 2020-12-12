@@ -1,6 +1,7 @@
 package io.xstefank;
 
 import io.smallrye.jwt.build.Jwt;
+import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -16,6 +17,7 @@ public class TokenResource {
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
+    @Counted(name = "tokens.generated.count")
     public String generateToken(TokenDetails tokenDetails) {
 
         String token =
