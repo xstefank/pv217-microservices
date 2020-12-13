@@ -502,7 +502,7 @@
       "options": {
         "fieldOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "defaults": {
             "mappings": [],
@@ -1140,5 +1140,5 @@
   "timezone": "",
   "title": "Avenger microservices",
   "uid": "fl-ma01Mz",
-  "version": 2
+  "version": 1
 }
