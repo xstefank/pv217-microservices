@@ -12,5 +12,6 @@
     <module>avenger-service</module>
     <module>snap-service</module>
     <module>token-issuer</module>
+    <module>avenger-generator</module>
   </modules>
 </project>
