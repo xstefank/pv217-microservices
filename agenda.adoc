@@ -1,4 +1,4 @@
-- 1st lecture - general microservices intro
-- 2nd lecture - Quarkus intro, Docker/Podman , and Kubernetes/Openshift
-- 3rd lecture - DB connection with Panache, MicroProfile
-- 4th lecture - MicroProfile continued, reactive programming, (Kafka)
+- 1st lecture - Microservices introduction
+- 2nd lecture - Introduction to Quarkus, HTTP, REST, Docker/Podman, and Kubernetes/Openshift
+- 3rd lecture - MicroProfile, Jakarta EE
+- 4th lecture - MicroProfile continued, Panache, reactive programming, (Kafka)
