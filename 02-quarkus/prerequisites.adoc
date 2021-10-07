@@ -22,12 +22,12 @@ mvn --version
 
 4. Optionally GraalVM 20.2.0 for native compilation (version to match Java above). Optional because Quarkus can use GraalVM docker image to build your native executable so you only need a working docker/podman environment.
 
-    https://quarkus.io/guides/building-native-image#configuring-graalvm
+https://quarkus.io/guides/building-native-image#configuring-graalvm
 
 5. Docker or Podman
 
-    https://www.docker.com/get-started
-    https://podman.io/getting-started/installation.html
+https://www.docker.com/get-started
+https://podman.io/getting-started/installation.html
 
 [source,bash]
 ----
@@ -37,10 +37,11 @@ podman version
 
 6. CRC or minikube
 
-    https://cloud.redhat.com/openshift/install/crc/installer-provisioned
+https://cloud.redhat.com/openshift/install/crc/installer-provisioned
 
-    https://minikube.sigs.k8s.io/docs/start/
-    https://kubernetes.io/docs/tasks/tools/install-kubectl/
+https://minikube.sigs.k8s.io/docs/start/
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 == Verify CRC or minikube is running
 [source,bash]
