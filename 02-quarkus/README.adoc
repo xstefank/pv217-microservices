@@ -1,0 +1,88 @@
+= Introduction to Quarkus
+
+== Why Quarkus?
+
+https://quarkus.io/blog/tag/user-story/
+
+== Quarkus getting started
+
+https://quarkus.io/
+
+https://quarkusio.zulipchat.com/login/
+
+== 01 Your first Quarkus application
+
+*Quarkus guide -- https://quarkus.io/guides/getting-started*
+
+=== Abbreviations explanations
+
+* JAX-RS -- *Jakarta RESTful Web Services* (formerly Java API for RESTful Web Services)
+** https://github.com/eclipse-ee4j/jaxrs-api
+** https://en.wikipedia.org/wiki/Jakarta_RESTful_Web_Services#:~:text=Jakarta%20RESTful%20Web%20Services%2C%20(JAX,Transfer%20(REST)%20architectural%20pattern.&text=From%20version%201.1%20on%2C%20JAX,part%20of%20Java%20EE%206.
+** Tutorials
+*** https://www.javacodegeeks.com/jax-rs-tutorials
+*** annotations -- https://examples.javacodegeeks.com/enterprise-java/rest/jax-rs-annotations-explained/
+** Quarkus guide
+*** https://quarkus.io/guides/resteasy-reactive - this is for more advanced implementation specific to Quarkus that extends JAX-RS API with more functionalities. If you stick to Quarkus I would encourage you to try this. This is a long list of functionalities, look only for things that you'll need.
+
+* CDI -- Contexts and Dependency Injection
+** http://www.cdi-spec.org/
+** https://en.wikipedia.org/wiki/Dependency_injection
+** Quarkus guide - https://quarkus.io/guides/cdi
+** Tutorials
+*** https://www.javacodegeeks.com/cdi-tutorials
+*** @Inject -- https://www.javacodegeeks.com/2013/05/java-ee-cdi-dependency-injection-inject-tutorial.html
+*** https://www.baeldung.com/java-ee-cdi
+
+== 02 Native executable
+
+*Quarkus guide -- https://quarkus.io/guides/building-native-image*
+
+== 03 Docker/Podman
+
+Files in the `src/main/docker` directory.
+
+Tutorials:
+
+* the one I did, great course worth the money - https://www.udemy.com/course/docker-mastery/
+* https://www.tutorialspoint.com/docker/index.htm
+
+== 04 Kubernetes/Openshift deployment
+
+1. Start Minikube or CRC on your local machine
+** https://minikube.sigs.k8s.io/docs/start/
+** https://developers.redhat.com/products/codeready-containers/overview
+
+2. Quarkus guides
+** Kubernetes/Minikube - https://quarkus.io/guides/deploying-to-kubernetes
+** Openshift/CRC - https://quarkus.io/guides/deploying-to-openshift
+
+=== Minikube additional comments
+
+==== Exposing NodePort in minikube
+
+[source,bash]
+----
+kubectl expose deployment kubernetes-quickstart --type=NodePort --name=k-e-nodeport
+minikube service list
+----
+
+This is added automatically with quarkus-minikube extension.
+
+=== CRC additional comments
+
+==== unable to find valid certification path to requested target
+
+If you run into following error:
+
+[source,bash]
+----
+[ERROR] Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+----
+
+then you can add `quarkus.kubernetes-client.trust-certs=true` to your `application.properties` to fix it.
+
+=== S2I isn't working (Build and Deploy (in separate steps))
+
+Currently, seems like a bug filed at https://github.com/quarkusio/quarkus/issues/12649. Use
+`./mvnw clean package -Dquarkus.kubernetes.deploy=true`.
