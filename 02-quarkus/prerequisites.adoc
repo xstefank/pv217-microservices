@@ -2,16 +2,16 @@
 
 1. Java IDE (Intellij Idea, Eclipse, VSCode)
 
-2. JDK 11+ (works also with JDK 8 but 11 or 14 (LTS) or later is preferred)
+2. JDK 11+ with JAVA_HOME configured appropriately (instructor will be mostly using JDK 17 which the latest LTS release, however, for native image builds with GraalVM we will require 11)
 
-    https://adoptopenjdk.net/
+    https://adoptium.net/
 
 [source,bash]
 ----
 java -version
 ----
 
-3. Maven 3.6.2+
+3. Apache Maven 3.8.1+
 
     http://maven.apache.org/download.cgi
 
@@ -20,9 +20,9 @@ java -version
 mvn --version
 ----
 
-4. Optionally GraalVM 20.2.0 for native compilation (version to match Java above)
+4. Optionally GraalVM 20.2.0 for native compilation (version to match Java above). Optional because Quarkus can use GraalVM docker image to build your native executable so you only need a working docker/podman environment.
 
-    https://www.graalvm.org/downloads/
+    https://quarkus.io/guides/building-native-image#configuring-graalvm
 
 5. Docker or Podman
 
