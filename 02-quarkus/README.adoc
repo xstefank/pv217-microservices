@@ -52,6 +52,7 @@ Files in the `src/main/docker` directory.
 Tutorials:
 
 * the one I did, great course worth the money - https://www.udemy.com/course/docker-mastery/
+** (Udemy has sales that takes this down to 10-12 EUR)
 * https://www.tutorialspoint.com/docker/index.htm
 
 == 04 Kubernetes/Openshift deployment
