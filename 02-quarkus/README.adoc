@@ -45,6 +45,9 @@ https://quarkusio.zulipchat.com/login/
 * JSON-P -- JSON Processing
 ** optional -- only if you need more granular access to JSON and you don't know the JSON format beforehand (should not be required in your projects)
 ** https://javaee.github.io/jsonp/getting-started.html
+** Tutorial - https://www.baeldung.com/jee7-json
+** Specification - https://github.com/eclipse-ee4j/jsonp
+** https://eclipse-ee4j.github.io/jsonp/
 
 == 02 Native executable
 
