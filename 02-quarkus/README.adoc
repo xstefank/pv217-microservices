@@ -35,7 +35,12 @@ https://quarkusio.zulipchat.com/login/
 *** https://www.baeldung.com/java-ee-cdi
 
 * JSON-B -- JSON Binding
-** https://www.baeldung.com/java-json-binding-api
+** https://quarkus.io/guides/rest-json
+
+** Tutorial - https://www.baeldung.com/java-json-binding-api
+*** in Quarkus you don't need anything else than quarkus-resteasy-jsonb extension
+** Specification - https://github.com/eclipse-ee4j/jsonb-api
+** http://json-b.net/
 
 * JSON-P -- JSON Processing
 ** optional -- only if you need more granular access to JSON and you don't know the JSON format beforehand (should not be required in your projects)
