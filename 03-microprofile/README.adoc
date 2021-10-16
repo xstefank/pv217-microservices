@@ -15,26 +15,9 @@ https://microprofile.io/
 
 https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 
-== 02 JAX-RS and CDI recap
+== 02 Jakarta EE recap (JAX-RS, CDI, JSON-B, and JSON-P)
 
-* https://github.com/xstefank/pv217-microservices/tree/master/02-quarkus#abbreviations-explanations
-
-* https://quarkus.io/guides/rest-json#whats-different-from-jakarta-ee-development
-
-== 03 JSON-B
-
-* https://quarkus.io/guides/rest-json
-
-* Tutorial - https://www.baeldung.com/java-json-binding-api
-** in Quarkus you don't need anything else then quarkus-jsonb extension
-* Specification - https://github.com/eclipse-ee4j/jsonb-api
-* http://json-b.net/
-
-== 04 JSON-P
-
-* Tutorial - https://www.baeldung.com/jee7-json
-* Specification - https://github.com/eclipse-ee4j/jsonp
-* https://eclipse-ee4j.github.io/jsonp/
+* https://github.com/xstefank/pv217-microservices/tree/main/02-quarkus#abbreviations-explanations
 
 == 03 MicroProfile Config
 
@@ -46,7 +29,7 @@ https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-health
 * Spec - https://github.com/eclipse/microprofile-health
-* Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.adoc
+* Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.asciidoc
 
 == 05 MicroProfile Metrics
 
