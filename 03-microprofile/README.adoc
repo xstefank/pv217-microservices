@@ -8,29 +8,29 @@ docker pull prom/prometheus:v2.30.3
 docker pull grafana/grafana:8.2.1
 ----
 
-== 01 What is MicroProfile?
+== 00 What is MicroProfile?
 
 https://microprofile.io/
 
 https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 
-== 02 Jakarta EE recap (JAX-RS, CDI, JSON-B, and JSON-P)
+== 01 Jakarta EE recap (JAX-RS, CDI, JSON-B, and JSON-P)
 
 * https://github.com/xstefank/pv217-microservices/tree/main/02-quarkus#abbreviations-explanations
 
-== 03 MicroProfile Config
+== 02 MicroProfile Config
 
 * Quarkus guide - https://quarkus.io/guides/config
 * Spec - https://github.com/eclipse/microprofile-config
 * Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
-== 04 MicroProfile Health
+== 03 MicroProfile Health
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-health
 * Spec - https://github.com/eclipse/microprofile-health
 * Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.asciidoc
 
-== 05 MicroProfile Metrics
+== 04 MicroProfile Metrics
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-metrics
 * Spec - https://github.com/eclipse/microprofile-metrics
@@ -56,7 +56,7 @@ Example prometheus.yml is available link:microprofile-metrics-quickstart/prometh
 docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 ----
 
-== 06 MP JWT Auth
+== 05 MP JWT Auth
 
 * Quarkus guide - https://quarkus.io/guides/security-jwt
 * Spec - https://github.com/eclipse/microprofile-jwt-auth
@@ -71,4 +71,4 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 
 * Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 * Spec - https://github.com/eclipse/microprofile-open-api
-* Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
+* Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.asciidoc
