@@ -56,7 +56,7 @@ Example prometheus.yml is available link:microprofile-metrics-quickstart/prometh
 docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 ----
 
-== 05 MP JWT Auth
+== 05 MicroProfile JWT Auth
 
 * Quarkus guide - https://quarkus.io/guides/security-jwt
 * Spec - https://github.com/eclipse/microprofile-jwt-auth
@@ -72,3 +72,12 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 * Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 * Spec - https://github.com/eclipse/microprofile-open-api
 * Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.asciidoc
+
+== 07 JAX-RS/MicroProfile REST client
+
+* JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+
+* Quarkus guide - https://quarkus.io/guides/rest-client
+* Spec - https://github.com/eclipse/microprofile-rest-client
+* Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
+
