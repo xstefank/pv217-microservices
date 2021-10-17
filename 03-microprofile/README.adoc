@@ -14,23 +14,19 @@ https://microprofile.io/
 
 https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 
-== 01 Jakarta EE recap (JAX-RS, CDI, JSON-B, and JSON-P)
-
-* https://github.com/xstefank/pv217-microservices/tree/main/02-quarkus#abbreviations-explanations
-
-== 02 MicroProfile Config
+== 01 MicroProfile Config
 
 * Quarkus guide - https://quarkus.io/guides/config
 * Spec - https://github.com/eclipse/microprofile-config
 * Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
-== 03 MicroProfile Health
+== 02 MicroProfile Health
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-health
 * Spec - https://github.com/eclipse/microprofile-health
 * Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.asciidoc
 
-== 04 MicroProfile Metrics
+== 03 MicroProfile Metrics
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-metrics
 * Spec - https://github.com/eclipse/microprofile-metrics
@@ -56,7 +52,7 @@ Example prometheus.yml is available link:microprofile-metrics-quickstart/prometh
 docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 ----
 
-== 05 MicroProfile JWT Auth
+== 04 MicroProfile JWT Auth
 
 * Quarkus guide - https://quarkus.io/guides/security-jwt
 * Spec - https://github.com/eclipse/microprofile-jwt-auth
@@ -67,17 +63,23 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 * https://quarkus.io/guides/security-openid-connect
 * https://quarkus.io/guides/security-keycloak-authorization
 
-== 06 MicroProfile OpenAPI
+== 05 MicroProfile OpenAPI
 
 * Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 * Spec - https://github.com/eclipse/microprofile-open-api
 * Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.asciidoc
 
-== 07 JAX-RS/MicroProfile REST client
+== 06 JAX-RS/MicroProfile REST client
 
 * JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
 
 * Quarkus guide - https://quarkus.io/guides/rest-client
 * Spec - https://github.com/eclipse/microprofile-rest-client
 * Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
+
+== 07 MicroProfile Fault Tolerance
+
+* Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+* Spec - https://github.com/eclipse/microprofile-fault-tolerance
+* Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
 
