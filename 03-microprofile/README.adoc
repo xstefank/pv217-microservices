@@ -62,7 +62,15 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:8.2.1
 **Advanced**
 
 * https://quarkus.io/guides/security-openid-connect
+* https://quarkus.io/guides/security-openid-connect-web-authentication
 * https://quarkus.io/guides/security-keycloak-authorization
+
+**Keycloak**
+
+[source,bash]
+----
+docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:15.0.2
+----
 
 == 05 MicroProfile OpenAPI
 
