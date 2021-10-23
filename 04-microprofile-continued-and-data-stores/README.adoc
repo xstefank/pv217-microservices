@@ -5,7 +5,7 @@
 [source,bash]
 ----
 docker pull postgres:14.0
-docker pull mongo
+docker pull mongo:5.0.3
 docker pull strimzi/kafka:0.19.0-kafka-2.5.0
 ----
 
@@ -126,26 +126,35 @@ To run MongoDB locally:
 ----
 docker run --rm \
         --name dev-mongo \
-        -e MONGO_INITDB_ROOT_USERNAME=mongo \
+        -e MONGO_INITDB_ROOT_USERNAME=admin \
         -e MONGO_INITDB_ROOT_PASSWORD=pass \
         -v ${HOME}/mongo-data:/data/db/:Z \
         -p 27017:27017 \
-        mongo
+        mongo:5.0.3
 ----
 
 Connect client:
 
 [source,bash]
 ----
-mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
+mongosh -u admin -p pass --authenticationDatabase admin pv217
+----
+
+Your mongo properties in `application.properties` should be:
+
+[source,bash]
+----
+# configure the MongoDB client for a replica set of two nodes
+quarkus.mongodb.connection-string=mongodb://localhost:27017
+# mandatory if you don't specify the name of the database using @MongoEntity
+quarkus.mongodb.database=pv217
 ----
 
 NOTE: Use the `admin` database. Otherwise the client can't authenticate.
 
-NOTE: Because of https://github.com/quarkusio/quarkus/issues/12514 you need to keep
-the entity classes in the same package as the classes that operates on them (e.g.,
-the REST resources).
+**Testing**
 
+With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is and https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
 
 == 99 OPTIONAL ------------------
 
