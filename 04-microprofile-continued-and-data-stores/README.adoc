@@ -4,7 +4,7 @@
 
 [source,bash]
 ----
-docker pull postgres
+docker pull postgres:14.0
 docker pull mongo
 docker pull strimzi/kafka:0.19.0-kafka-2.5.0
 ----
@@ -35,6 +35,117 @@ docker pull strimzi/kafka:0.19.0-kafka-2.5.0
 ----
 docker run -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 jaegertracing/all-in-one:1.27.0
 ----
+
+== 01 DB utilization with Panache
+
+=== 1a Panache with the relational DB (PostgreSQL)
+
+* Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
+* JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
+
+To run PostgreSQL locally:
+
+[source,bash]
+----
+mkdir -p ${HOME}/postgres-data
+
+docker run --rm \
+        --name dev-postgres \
+        -e POSTGRES_PASSWORD=pass \
+        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
+        -p 5432:5432 \
+        postgres:14.0
+----
+
+And to connect the client:
+
+[source,bash]
+----
+psql -h localhost -U postgres
+----
+
+==== Testing
+
+Add following dependencies:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-panache-mock</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-test-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-jdbc-h2</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+Note for repository pattern use this instead of `quarkus-panache-mock`:
+
+[source,java]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-junit5-mockito</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+And following configuration:
+
+[source,bash]
+----
+%test.quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:test
+%test.quarkus.datasource.db-kind=h2
+----
+
+And to your `@QuarkusTest` class add:
+
+[source,java]
+----
+@QuarkusTest
+@QuarkusTestResource(H2DatabaseTestResource.class)
+----
+
+This will configure embedded H2 database for tests.
+
+=== 1b Panache with the NoSQL DB (MongoDB)
+
+Quarkus guide - https://quarkus.io/guides/mongodb-panache
+
+To run MongoDB locally:
+
+[source,bash]
+----
+docker run --rm \
+        --name dev-mongo \
+        -e MONGO_INITDB_ROOT_USERNAME=mongo \
+        -e MONGO_INITDB_ROOT_PASSWORD=pass \
+        -v ${HOME}/mongo-data:/data/db/:Z \
+        -p 27017:27017 \
+        mongo
+----
+
+Connect client:
+
+[source,bash]
+----
+mongo --host localhost -u mongo -p pass --authenticationDatabase admin pv217
+----
+
+NOTE: Use the `admin` database. Otherwise the client can't authenticate.
+
+NOTE: Because of https://github.com/quarkusio/quarkus/issues/12514 you need to keep
+the entity classes in the same package as the classes that operates on them (e.g.,
+the REST resources).
+
 
 == 99 OPTIONAL ------------------
 
