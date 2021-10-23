@@ -1,0 +1,46 @@
+= MicroProfile continued and Data stores
+
+== Prerequisites
+
+[source,bash]
+----
+docker pull postgres
+docker pull mongo
+docker pull strimzi/kafka:0.19.0-kafka-2.5.0
+----
+
+== 01 JAX-RS/MicroProfile REST client
+
+* JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+
+* Quarkus guide - https://quarkus.io/guides/rest-client
+* Spec - https://github.com/eclipse/microprofile-rest-client
+* Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
+
+== 02 MicroProfile Fault Tolerance
+
+* Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+* Spec - https://github.com/eclipse/microprofile-fault-tolerance
+* Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
+
+== 03 MP OpenTracing
+
+* Quarkus guide - https://quarkus.io/guides/opentracing
+* Spec - https://github.com/eclipse/microprofile-opentracing
+* Spec doc - https://github.com/eclipse/microprofile-opentracing/blob/master/spec/src/main/asciidoc/microprofile-opentracing-spec.asciidoc
+
+**Jaeger**
+
+[source,bash]
+----
+docker run -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 jaegertracing/all-in-one:1.27.0
+----
+
+== 99 OPTIONAL ------------------
+
+== TODO OpenTelemetry (MP OpenTracing alternative)
+
+OpenTelemetry is successor of OpenTracing.
+
+* Quarkus guide - https://quarkus.io/guides/opentelemetry
+* Website - https://opentelemetry.io/
