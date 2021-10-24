@@ -145,12 +145,10 @@ Your mongo properties in `application.properties` should be:
 [source,bash]
 ----
 # configure the MongoDB client for a replica set of two nodes
-quarkus.mongodb.connection-string=mongodb://localhost:27017
+quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
 # mandatory if you don't specify the name of the database using @MongoEntity
 quarkus.mongodb.database=pv217
 ----
-
-NOTE: Use the `admin` database. Otherwise the client can't authenticate.
 
 **Testing**
 
