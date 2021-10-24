@@ -154,7 +154,7 @@ NOTE: Use the `admin` database. Otherwise the client can't authenticate.
 
 **Testing**
 
-With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is and https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
+With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can for sure be done by starting clean mongo instance in the background to which tests can connect to but it can also be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is an https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
 
 == 99 OPTIONAL ------------------
 
