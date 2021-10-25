@@ -162,3 +162,7 @@ OpenTelemetry is successor of OpenTracing.
 
 * Quarkus guide - https://quarkus.io/guides/opentelemetry
 * Website - https://opentelemetry.io/
+
+== 06 REST data Panache
+
+- Quarkus guide - https://quarkus.io/guides/rest-data-panache
