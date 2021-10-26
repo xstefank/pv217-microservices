@@ -60,7 +60,7 @@ And to connect the client:
 
 [source,bash]
 ----
-psql -h localhost -U postgres
+psql -h localhost -U postgres -d pv217
 ----
 
 ==== Testing
