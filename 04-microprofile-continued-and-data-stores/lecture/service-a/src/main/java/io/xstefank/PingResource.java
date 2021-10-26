@@ -1,5 +1,6 @@
 package io.xstefank;
 
+import io.opentracing.Tracer;
 import io.smallrye.opentracing.SmallRyeClientTracingFeature;
 import io.smallrye.opentracing.SmallRyeTracingDynamicFeature;
 import org.eclipse.microprofile.faulttolerance.Fallback;
@@ -18,13 +19,16 @@ import javax.ws.rs.core.Response;
 @Path("/ping")
 public class PingResource {
 
+    @Inject
+    Tracer tracer;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         Client client = null;
         try {
             ClientBuilder clientBuilder = ClientBuilder.newBuilder();
-            clientBuilder.register(SmallRyeTracingDynamicFeature.class);
+            clientBuilder.register(new SmallRyeClientTracingFeature(tracer));
             client = clientBuilder.build();
             Response response = client
                 .target("http://localhost:8081/ping")
