@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+
+  postgres:
+    image: postgres:14.0
+    container_name: dev-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data:Z
+
+  mongodb:
+    image: mongo:5.0.3
+    container_name: dev-mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ${HOME}/mongo-data:/data/db/:Z
+
+  prometheus:
+    image: prom/prometheus:v2.30.3
+    container_name: prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana:8.2.1
+    container_name: grafana
+    network_mode: host
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.27.0
+    container_name: jaeger
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250"
+
+  # my service
+  panache-postgres:
+    build:
+      context: ./panache-postgres
+      dockerfile: src/main/docker/Dockerfile.jvm
+    container_name: panache-postgres
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
