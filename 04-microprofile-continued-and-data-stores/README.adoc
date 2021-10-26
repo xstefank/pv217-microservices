@@ -6,7 +6,6 @@
 ----
 docker pull postgres:14.0
 docker pull mongo:5.0.3
-docker pull strimzi/kafka:0.19.0-kafka-2.5.0
 ----
 
 == 01 JAX-RS/MicroProfile REST client
