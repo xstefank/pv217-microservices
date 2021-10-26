@@ -153,15 +153,48 @@ quarkus.mongodb.database=pv217
 
 With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can for sure be done by starting clean mongo instance in the background to which tests can connect to but it can also be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is an https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
 
+== 05 Docker compose (Podman compose)
+
+In this directory you can find a file named `docker-compose.yml`. https://docs.docker.com/compose/[Docker-compose] is a tool that allows you to specify several containers that can be started/stopped/managed as a single unit with single command. So for instance, you can run following commands in the same directory where the `docker-compose.yml` is to:
+
+* start all defined containers:
+[source,bash]
+----
+$ docker-compose up
+----
+The logs will be all available the same terminal.
+
+* start all containers in the background:
+[source,bash]
+----
+$ docker-compose up -d
+----
+To get logs you can call docker or docker-compose:
+[source,bash]
+----
+$ docker logs -f <container>
+----
+
+* to stop all containers:
+[source,bash]
+----
+$ docker-compose down
+----
+and to also remove them:
+[source,bash]
+----
+$ docker-compose down --rmi
+----
+
 == 99 OPTIONAL ------------------
 
-== 05 OpenTelemetry (MP OpenTracing alternative)
+== 06 OpenTelemetry (MP OpenTracing alternative)
 
 OpenTelemetry is successor of OpenTracing.
 
 * Quarkus guide - https://quarkus.io/guides/opentelemetry
 * Website - https://opentelemetry.io/
 
-== 06 REST data Panache
+== 07 REST data Panache
 
 - Quarkus guide - https://quarkus.io/guides/rest-data-panache
