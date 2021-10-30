@@ -12,6 +12,8 @@
 * Apache Kafka - https://kafka.apache.org/quickstart
 * My reactive talk - http://youtube.com/watch?v=eZYEgMHVFPU
 
+IMPORTANT: Kafka Dev services in Quarkus - https://quarkus.io/guides/kafka-dev-services
+
 **Comments**
 
 Deploying kafka with `podman-compose` doesn't read environment variables
