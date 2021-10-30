@@ -46,7 +46,7 @@ public class NewsResource {
         return String.format("News '%s' will be verified later", trimmedNews);
     }
 
-    @Channel("news")
+    @Channel("verified-news")
     Multi<String> newsMulti; //changed to Multi from Publisher in the recording (specific type for quarkus)
 
     @GET
