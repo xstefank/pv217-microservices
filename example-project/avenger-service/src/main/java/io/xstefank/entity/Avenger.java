@@ -11,6 +11,15 @@ public class Avenger extends PanacheEntity {
     public String civilName;
     public Boolean snapped;
 
+    public Avenger() {
+    }
+
+    public Avenger(String name, String civilName, Boolean snapped) {
+        this.name = name;
+        this.civilName = civilName;
+        this.snapped = snapped;
+    }
+
     @Override
     public String toString() {
         return "Avenger{" +

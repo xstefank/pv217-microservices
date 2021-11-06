@@ -1,6 +1,5 @@
 package io.xstefank;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import io.quarkus.panache.common.Parameters;
 import io.xstefank.entity.Avenger;
 import io.xstefank.service.AvengerService;
@@ -9,12 +8,9 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.json.JsonObject;
-import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -31,8 +27,10 @@ public class AvengerResource {
 
     @POST
     @Path("/create")
-    public Avenger createAvenger(Avenger avenger) {
-        return avengerService.createAvenger(avenger);
+    public Response createAvenger(Avenger avenger) {
+        Avenger created = avengerService.createAvenger(avenger);
+
+        return Response.status(Response.Status.CREATED).entity(created).build();
     }
 
     @PUT
