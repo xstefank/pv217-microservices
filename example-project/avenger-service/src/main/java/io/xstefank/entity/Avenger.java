@@ -9,5 +9,27 @@ public class Avenger extends PanacheEntity {
 
     public String name;
     public String civilName;
-    public boolean snapped;
+    public Boolean snapped;
+
+    @Override
+    public String toString() {
+        return "Avenger{" +
+            "name='" + name + '\'' +
+            ", civilName='" + civilName + '\'' +
+            ", snapped=" + snapped +
+            ", id=" + id +
+            '}';
+    }
+
+    public void merge(Avenger update) {
+        if (update.name != null) {
+            this.name = update.name;
+        }
+        if (update.civilName != null) {
+            this.civilName = update.civilName;
+        }
+        if (update.snapped != null) {
+            this.snapped = update.snapped;
+        }
+    }
 }
