@@ -1,10 +1,12 @@
 package io.xstefank;
 
 import io.quarkus.panache.common.Parameters;
+import io.xstefank.client.AvengerGeneratorClient;
 import io.xstefank.entity.Avenger;
 import io.xstefank.service.AvengerService;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.annotation.security.RolesAllowed;
@@ -18,7 +20,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Path("/avenger")
 @ApplicationScoped
@@ -26,6 +30,10 @@ public class AvengerResource {
 
     @Inject
     AvengerService avengerService;
+
+    @Inject
+    @RestClient
+    AvengerGeneratorClient avengerGeneratorClient;
 
     @POST
     @Path("/create")
@@ -93,6 +101,31 @@ public class AvengerResource {
     @Timed(name = "avenger.search.timer")
     public List<Avenger> searchAvengers(@QueryParam("search") String search) {
         return Avenger.list("name like :search or civilName like :search", Parameters.with("search", "%" + search + "%"));
+    }
+
+    @GET
+    @Path("/generate-team")
+    @Counted(name = "avenger.team.generate.counter")
+    @Timed(name = "avenger.team.generate.timer")
+    public List<Avenger> generateAvengersTeam(@QueryParam("size") @DefaultValue("5") int size) {
+        List<Avenger> result;
+        long count = Avenger.count();
+        if (size > count) {
+            // we don't have enough Avengers so generate rest
+
+            result = Avenger.listAll();
+
+            for (int i = 0; i < size - count; i++) {
+                result.add(avengerGeneratorClient.generateAvenger());
+            }
+        } else {
+            result = new ArrayList<>();
+
+            ThreadLocalRandom.current().longs(1, Avenger.count() + 1)
+                .distinct().limit(size).forEach(i -> result.add(Avenger.findById(i)));
+        }
+
+        return result;
     }
 }
 
