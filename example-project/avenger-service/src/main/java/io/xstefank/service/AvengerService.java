@@ -1,27 +1,45 @@
 package io.xstefank.service;
 
+import io.xstefank.client.SnapServiceClient;
 import io.xstefank.entity.Avenger;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
+import org.jboss.resteasy.client.exception.ResteasyWebApplicationException;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.json.JsonObject;
 import javax.transaction.Transactional;
 import javax.ws.rs.NotFoundException;
 
 @ApplicationScoped
 public class AvengerService {
 
-    private Logger log = Logger.getLogger(AvengerService.class);
+    private static final Logger log = Logger.getLogger(AvengerService.class);
+
+    @Inject
+    @RestClient
+    SnapServiceClient snapServiceClient;
 
     @Transactional
     public Avenger createAvenger(Avenger avenger) {
-        boolean snapped = false; // TODO call snap service here
+        boolean snapped = getSnap(avenger);
         avenger.snapped = snapped;
 
         avenger.persist();
         return avenger;
+    }
+
+    @Retry(maxRetries = 2)
+    @Fallback(fallbackMethod = "defaultSnap")
+    public boolean getSnap(Avenger avenger) {
+        return snapServiceClient.shouldBeSnapped(avenger);
+    }
+
+    private boolean defaultSnap(Avenger avenger) {
+        // rather snap then don't snap
+        return true;
     }
 
     @Transactional

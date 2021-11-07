@@ -30,7 +30,7 @@ public class AvengerResourceTest {
 
     @Test
     public void testCreateDeleteAvenger() {
-        Avenger avenger = new Avenger("Test name", "Test civilName", false);
+        Avenger avenger = new Avenger("Test name", "Test civilName", true);
 
         Object id = given()
             .body(avenger)
@@ -40,7 +40,7 @@ public class AvengerResourceTest {
             .statusCode(201)
             .body("name", equalTo("Test name"))
             .body("civilName", equalTo("Test civilName"))
-            .body("snapped", equalTo(false))
+            .body("snapped", equalTo(true))
             .extract().path("id");
 
         given()
@@ -49,7 +49,7 @@ public class AvengerResourceTest {
             .statusCode(200)
             .body("name", equalTo("Test name"))
             .body("civilName", equalTo("Test civilName"))
-            .body("snapped", equalTo(false))
+            .body("snapped", equalTo(true))
             .body("id", equalTo(id));
     }
 
