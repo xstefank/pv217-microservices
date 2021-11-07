@@ -47,6 +47,18 @@ services:
       - "16686:16686"
       - "14268:14268"
       - "14250"
+    
+  keycloak:
+    image: quay.io/keycloak/keycloak:15.0.2
+    container_name: keycloak
+    ports:
+      - "8180:8080"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_IMPORT=/tmp/avengers-microservices-realm.json
+    volumes:
+      - ./avengers-microservices-realm.json:/tmp/avengers-microservices-realm.json:Z
 
   # avenger services
   avenger-generator:
