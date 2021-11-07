@@ -57,7 +57,6 @@ public class AvengerResource {
 
     @DELETE
     @Path("/{id}/delete")
-    @RolesAllowed("Admin")
     @Counted(name = "avenger.delete.counter")
     @Timed(name = "avenger.delete.timer")
     public Response deleteAvenger(@PathParam long id) {
@@ -104,9 +103,6 @@ public class AvengerResource {
     public List<Avenger> searchAvengers(@QueryParam("search") String search) {
         return Avenger.list("name like :search or civilName like :search", Parameters.with("search", "%" + search + "%"));
     }
-
-    @Inject
-    JsonWebToken jsonWebToken;
 
     @GET
     @Path("/generate-team")

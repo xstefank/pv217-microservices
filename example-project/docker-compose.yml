@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
 
@@ -47,24 +47,24 @@ services:
       - "16686:16686"
       - "14268:14268"
       - "14250"
-    
+
   keycloak:
     image: quay.io/keycloak/keycloak:15.0.2
     container_name: keycloak
     ports:
-      - "8180:8080"
+      - "8180:8180"
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
-      - KEYCLOAK_IMPORT=/tmp/avengers-microservices-realm.json
+      - KEYCLOAK_IMPORT=/tmp/quarkus-realm.json
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres
+      - DB_DATABASE=postgres
+      - DB_USER=postgres
+      - DB_SCHEMA=public
+      - DB_PASSWORD=pass
+      - JAVA_OPTS="-Djboss.socket.binding.port-offset=100"
     volumes:
-      - ./avengers-microservices-realm.json:/tmp/avengers-microservices-realm.json:Z
+      - ./quarkus-realm.json:/tmp/quarkus-realm.json:Z
 
-  # avenger services
-  avenger-generator:
-    build:
-      context: ./avenger-generator
-      dockerfile: src/main/docker/Dockerfile.jvm
-    container_name: avenger-generator
-    ports:
-      - "8082:8082"
+
