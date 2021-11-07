@@ -4,6 +4,7 @@ import io.quarkus.panache.common.Parameters;
 import io.xstefank.client.AvengerGeneratorClient;
 import io.xstefank.entity.Avenger;
 import io.xstefank.service.AvengerService;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -15,6 +16,7 @@ import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -102,6 +104,9 @@ public class AvengerResource {
     public List<Avenger> searchAvengers(@QueryParam("search") String search) {
         return Avenger.list("name like :search or civilName like :search", Parameters.with("search", "%" + search + "%"));
     }
+
+    @Inject
+    JsonWebToken jsonWebToken;
 
     @GET
     @Path("/generate-team")
