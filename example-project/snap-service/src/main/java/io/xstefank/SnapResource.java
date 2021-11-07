@@ -47,7 +47,6 @@ public class SnapResource {
     @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed("user")
     @Counted(name = "snap.list.counter")
     @Timed(name = "snap.list.timer")
     public List<Snap> getSnaps(@QueryParam("snapped") @DefaultValue("true") boolean snapped) {
