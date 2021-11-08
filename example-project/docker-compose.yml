@@ -2,9 +2,34 @@ version: "3.8"
 
 services:
 
+  avenger-service:
+    build:
+      context: ./avenger-service
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  snap-service:
+    build:
+      context: ./snap-service
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+
+  avenger-generator:
+    build:
+      context: ./avenger-generator
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8082:8082"
+
   postgres:
     image: postgres:14.0
-    container_name: dev-postgres
+    container_name: postgres
     ports:
       - "5432:5432"
     environment:
@@ -12,9 +37,9 @@ services:
     volumes:
       - ${HOME}/postgres-data/:/var/lib/postgresql/data:Z
 
-  mongodb:
+  mongo:
     image: mongo:5.0.3
-    container_name: dev-mongo
+    container_name: mongo
     ports:
       - 27017:27017
     environment:
