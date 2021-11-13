@@ -45,3 +45,28 @@ After you are finished with your testing you can stop the application (kill the 
 ----
 podman-compose down
 ----
+
+== Dev mode with all services
+
+If you want to start the whole project in dev mode so you can change the avenger services and see the changes applied on HTTP call requests you can use the second available docker-compose file `docker-compose-dev.yml` that starts only the supporting services, so not including 3 avengers services:
+
+[source,bash]
+----
+podman-compose -f docker-compose-dev.yml up
+----
+
+Then you need in 3 different terminals open all individual avenger microservices directories - avenger-service, snap-service, and avenger-generator and in each of this directories run the following command:
+
+[source,bash]
+----
+./mvnw clean compile quarkus:dev
+----
+
+This starts all avengers services in dev mode on their respective ports (avenger-service:8080, snap-service:8081, and avenger-generator:8082).
+
+After you are finised with testing the supporting services can be stopped with:
+
+[source,bash]
+----
+podman-compose -f docker-compose-dev.yml down
+----
