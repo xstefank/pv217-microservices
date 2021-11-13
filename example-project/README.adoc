@@ -1,0 +1,47 @@
+= PV217 Example Project - Avengers
+
+This is an example project for FI MUNI course PV217. It consists of three Quarkus microservices that can be deployed together with the number of supporting microservices to provide simple functiontialities around generating and creating random avengers.
+
+== Building and running
+
+To build the project run:
+
+[source,bash]
+----
+mvn clean install
+----
+
+in this directory. It will build all avengers microservices. The parent module in this directory exists only to easy the building of all services but all avengers microservices are a standalone applications that can be distributed on their own.
+
+To run the application locally run the following commands after you successfully built the project:
+
+[source,bash]
+----
+# builds the images for our microservices
+podman-compose build
+
+# starts all services in our application according to definitions in docker-compose.yml
+podman-compose up
+----
+
+Now you can access the application at `http://localhost:8080/q/swagger-ui`. The valid login credentials are:
+
+[source,bash]
+----
+alice:alice (user)
+bob:bob (user)
+admin:admin (user, admin)
+----
+
+In the swagger UI you can try namely endpoints:
+
+- `/avenger/generate-team` -- calls avenger-generator if we don't have enough existing avengers
+
+- `/avenger/create` -- calls snap-service to get the information whether the new avenger should be snapped
+
+After you are finished with your testing you can stop the application (kill the containers and remove them) by running the following command in this directory:
+
+[source,bash]
+----
+podman-compose down
+----
