@@ -29,7 +29,7 @@ Now you can access the application at `http://localhost:8080/q/swagger-ui`. The 
 [source,bash]
 ----
 alice:alice (user)
-bob:bob (user)
+jdoe:jdoe (user)
 admin:admin (user, admin)
 ----
 
