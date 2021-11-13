@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres:14.0
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data:Z
+
+  mongo:
+    image: mongo:5.0.3
+    container_name: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ${HOME}/mongo-data:/data/db/:Z
+
+  prometheus:
+    image: prom/prometheus:v2.30.3
+    container_name: prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana:8.2.1
+    container_name: grafana
+    network_mode: host
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.27.0
+    container_name: jaeger
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:15.0.2
+    container_name: keycloak
+    ports:
+      - "8180:8180"
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_IMPORT=/tmp/quarkus-realm.json
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres
+      - DB_DATABASE=postgres
+      - DB_USER=postgres
+      - DB_SCHEMA=public
+      - DB_PASSWORD=pass
+      - JAVA_OPTS="-Djboss.socket.binding.port-offset=100"
+    volumes:
+      - ./quarkus-realm.json:/tmp/quarkus-realm.json:Z
+
+
