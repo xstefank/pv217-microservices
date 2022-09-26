@@ -13,3 +13,7 @@
 - Docker or Podman
 
 Preffered OS is Linux or Mac. On Windows please use the WSL - https://cs.wikipedia.org/wiki/Windows_Subsystem_for_Linux
+
+## Zulip
+
+To reach out the guest lecturer Martin Stefanko with questions you can use Quarkus zulip instance - https://quarkusio.zulipchat.com/
