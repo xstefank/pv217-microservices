@@ -10,6 +10,10 @@ https://quarkus.io/
 
 https://quarkusio.zulipchat.com/login/
 
+== Quarkus CLI
+
+If you want to use the quarkus CLI like in the lecture (maven plugin has the equivalent capabilities) you need to install it - https://quarkus.io/guides/cli-tooling
+
 == 01 Your first Quarkus application
 
 *Quarkus guide -- https://quarkus.io/guides/getting-started*
