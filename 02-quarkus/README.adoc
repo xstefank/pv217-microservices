@@ -67,6 +67,8 @@ Tutorials:
 ** (Udemy has sales that takes this down to 10-12 EUR)
 * https://www.tutorialspoint.com/docker/index.htm
 
+*Quarkus guide -- https://quarkus.io/guides/container-image*
+
 == 04 Kubernetes/Openshift deployment
 
 1. Start Minikube or CRC on your local machine
