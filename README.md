@@ -11,6 +11,7 @@
 - Maven 3.8.1+
 - Optionally (used in lectures) Quarkus CLI - https://quarkus.io/guides/cli-tooling
 - Docker or Podman
+- Optionally for native compilations GraalVM or Mandrel - https://quarkus.io/guides/building-native-image#configuring-graalvm 
 
 Preffered OS is Linux or Mac. On Windows please use the WSL - https://cs.wikipedia.org/wiki/Windows_Subsystem_for_Linux
 
