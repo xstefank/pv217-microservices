@@ -75,6 +75,8 @@ Tutorials:
 ** https://minikube.sigs.k8s.io/docs/start/
 ** https://developers.redhat.com/products/codeready-containers/overview
 
+1a. Or Use OpenShift Sandbox - https://dn.dev/rhd-sandbox
+
 2. Quarkus guides
 ** Kubernetes/Minikube - https://quarkus.io/guides/deploying-to-kubernetes
 ** Openshift/CRC - https://quarkus.io/guides/deploying-to-openshift
