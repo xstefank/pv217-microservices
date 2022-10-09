@@ -6,7 +6,6 @@
 ----
 docker pull prom/prometheus:v2.39.1
 docker pull grafana/grafana:9.1.7
-docker pull jaegertracing/all-in-one:1.27.0
 ----
 
 == 00 What is MicroProfile?
@@ -66,7 +65,7 @@ docker run --rm -p 3000:3000 --network host grafana/grafana:9.1.7
 
 [source,bash]
 ----
-docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:19.0.3
+docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:19.0.3 start-dev
 ----
 
 == 05 MicroProfile OpenAPI
