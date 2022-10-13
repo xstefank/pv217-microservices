@@ -12,7 +12,7 @@ docker pull mongo:5.0.3
 
 * JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
 
-* Quarkus guide - https://quarkus.io/guides/rest-client
+* Quarkus guide - https://quarkus.io/guides/rest-client-reactive
 * Spec - https://github.com/eclipse/microprofile-rest-client
 * Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
 
