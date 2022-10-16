@@ -165,7 +165,7 @@ And to connect the client:
 psql -h localhost -U postgres -d pv217
 ----
 
-==== Testing
+==== Testing (Not required with Dev Services)
 
 Add following dependencies:
 
