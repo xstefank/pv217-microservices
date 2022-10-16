@@ -4,8 +4,12 @@
 
 [source,bash]
 ----
-docker pull postgres:14.0
-docker pull mongo:5.0.3
+docker pull postgres:15.0
+docker pull mongo:6.0.2
+docker pull prom/prometheus:v2.39.1
+docker pull grafana/grafana:9.1.8
+docker pull jaegertracing/all-in-one:1.38.1
+docker pull otel/opentelemetry-collector:0.62.1
 ----
 
 == 01 JAX-RS/MicroProfile REST client
@@ -22,7 +26,53 @@ docker pull mongo:5.0.3
 * Spec - https://github.com/eclipse/microprofile-fault-tolerance
 * Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
 
-== 03 OpenTelemetry (MP Telemetry Tracing)
+== 03 Docker compose (Podman compose)
+
+In this directory you can find a file named `docker-compose.yml`.
+https://docs.docker.com/compose/[Docker-compose] is a tool that allows you
+to specify several containers that can be started/stopped/managed as a
+single unit with single command. So for instance, you can run following
+commands in the same directory where the `docker-compose.yml` is to:
+
+* start all defined containers:
+[source,bash]
+----
+$ docker-compose up
+----
+The logs will be all available the same terminal.
+
+* start all containers in the background:
+[source,bash]
+----
+$ docker-compose up -d
+----
+To get logs you can call docker or docker-compose:
+[source,bash]
+----
+$ docker logs -f <container>
+----
+
+* to stop all containers:
+[source,bash]
+----
+$ docker-compose down
+----
+and to also remove them:
+[source,bash]
+----
+$ docker-compose down --rmi
+----
+
+NOTE: podman-compose 1.0.3 (latest stable) doesn't work with
+network_mode: host we use for prometheus and grafana. You need to install
+devel version 1.0.4:
+
+[source,bash]
+----
+pip3 install --user https://github.com/containers/podman-compose/archive/devel.tar.gz
+----
+
+== 04 OpenTelemetry (MP Telemetry Tracing)
 
 OpenTelemetry is successor of OpenTracing.
 
@@ -87,9 +137,9 @@ services:
       - jaeger-all-in-one
 ----
 
-== 04 DB utilization with Panache
+== 05 DB utilization with Panache
 
-=== 4a Panache with the relational DB (PostgreSQL)
+=== 05a Panache with the relational DB (PostgreSQL)
 
 * Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
 * JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
@@ -167,7 +217,7 @@ And to your `@QuarkusTest` class add:
 
 This will configure embedded H2 database for tests.
 
-=== 4b Panache with the NoSQL DB (MongoDB)
+=== 05b Panache with the NoSQL DB (MongoDB)
 
 Quarkus guide - https://quarkus.io/guides/mongodb-panache
 
@@ -205,38 +255,6 @@ quarkus.mongodb.database=pv217
 
 With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can for sure be done by starting clean mongo instance in the background to which tests can connect to but it can also be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is an https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
 
-== 05 Docker compose (Podman compose)
-
-In this directory you can find a file named `docker-compose.yml`. https://docs.docker.com/compose/[Docker-compose] is a tool that allows you to specify several containers that can be started/stopped/managed as a single unit with single command. So for instance, you can run following commands in the same directory where the `docker-compose.yml` is to:
-
-* start all defined containers:
-[source,bash]
-----
-$ docker-compose up
-----
-The logs will be all available the same terminal.
-
-* start all containers in the background:
-[source,bash]
-----
-$ docker-compose up -d
-----
-To get logs you can call docker or docker-compose:
-[source,bash]
-----
-$ docker logs -f <container>
-----
-
-* to stop all containers:
-[source,bash]
-----
-$ docker-compose down
-----
-and to also remove them:
-[source,bash]
-----
-$ docker-compose down --rmi
-----
 
 == 99 OPTIONAL ------------------
 
