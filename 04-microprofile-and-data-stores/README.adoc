@@ -231,7 +231,7 @@ docker run --rm \
         -e MONGO_INITDB_ROOT_PASSWORD=pass \
         -v ${HOME}/mongo-data:/data/db/:Z \
         -p 27017:27017 \
-        mongo:5.0.3
+        mongo:6.0.2
 ----
 
 Connect client:
@@ -239,6 +239,9 @@ Connect client:
 [source,bash]
 ----
 mongosh -u admin -p pass --authenticationDatabase admin pv217
+
+# Dev Services (name of your db)
+mongosh --port 40881 person
 ----
 
 Your mongo properties in `application.properties` should be:
@@ -246,15 +249,14 @@ Your mongo properties in `application.properties` should be:
 [source,bash]
 ----
 # configure the MongoDB client for a replica set of two nodes
-quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
+%prod.quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
 # mandatory if you don't specify the name of the database using @MongoEntity
 quarkus.mongodb.database=pv217
 ----
 
 **Testing**
 
-With mongo we don't have in memory variant like we had with H2. So we need to actually start mongo in tests. This can for sure be done by starting clean mongo instance in the background to which tests can connect to but it can also be done by a framework called https://www.testcontainers.org/[testcontainers]. Here is an https://github.com/quarkusio/quarkus-quickstarts/tree/main/mongodb-panache-quickstart/src/test/java/org/acme/mongodb/panache[example].
-
+Utilize Dev Services to start the Mongo DB in background during tests.
 
 == 99 OPTIONAL ------------------
 

@@ -15,10 +15,10 @@ public class PersonResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/persons/basics")
-          .then()
-             .statusCode(200)
-             .body(is("Hello from Panache"));
+            .when().get("/persons/basics")
+            .then()
+            .statusCode(200)
+            .body(is("Hello from Mongo Panache"));
 
         Assertions.assertEquals(1, Person.count());
     }
