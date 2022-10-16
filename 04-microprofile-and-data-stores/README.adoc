@@ -4,7 +4,7 @@
 
 [source,bash]
 ----
-docker pull postgres:15.0
+docker pull postgres:14.0
 docker pull mongo:6.0.2
 docker pull prom/prometheus:v2.39.1
 docker pull grafana/grafana:9.1.8
