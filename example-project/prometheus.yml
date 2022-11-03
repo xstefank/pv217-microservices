@@ -1,0 +1,14 @@
+# prometheus.yml
+global:
+  scrape_interval: 1s
+  external_labels:
+    monitor: 'my-monitor'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'example-project'
+    metrics_path: /q/metrics
+    static_configs:
+      - targets: ['localhost:8080', 'localhost:8081', 'localhost:8082']

@@ -8,6 +8,7 @@ import io.xstefank.client.AvengerGeneratorClient;
 import io.xstefank.entity.Avenger;
 import io.xstefank.service.AvengerService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -69,6 +70,7 @@ public class AvengerResource {
     @Counted("avenger.getAll.counter")
     @Timed("avenger.getAll.timer")
     public List<Avenger> getAvengers() {
+        Logger.getLogger("ASDFasdf").info("asdfasdf");
         return Avenger.listAll();
     }
 
@@ -109,7 +111,7 @@ public class AvengerResource {
     @Path("/generate-team")
     @Counted("avenger.team.generate.counter")
     @Timed("avenger.team.generate.timer")
-    public List<Avenger> generateAvengersTeam(@QueryParam("size") @DefaultValue("5") int size) {
+    public List<Avenger> generateAvengersTeam(@QueryParam("size") @DefaultValue("10") int size) {
         List<Avenger> result;
         long count = Avenger.count();
         if (size > count) {
@@ -118,7 +120,7 @@ public class AvengerResource {
             result = Avenger.listAll();
 
             for (int i = 0; i < size - count; i++) {
-                result.add(avengerGeneratorClient.generateAvenger());
+                result.add(avengerService.createAvenger(avengerGeneratorClient.generateAvenger()));
             }
         } else {
             result = new ArrayList<>();

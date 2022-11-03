@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/snap")
-//@AccessToken
+@AccessToken
 @RegisterRestClient(configKey = "snap-service-client")
 public interface SnapServiceClient {
 

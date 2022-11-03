@@ -1,0 +1,106 @@
+version: "3.8"
+
+# avenger-service 8080
+# snap-service 8081
+# avenger-generator 8082
+# postgres 5432
+# mongo 27017
+# prometheus 9090
+# grafana 3000 (admin:admin)
+# keycloak 8180 (admin:admin)
+
+services:
+
+  avenger-service:
+    container_name: avenger-service
+    build:
+      context: ./avenger-service
+      dockerfile: src/main/docker/Dockerfile.jvm
+    network_mode: host
+    depends_on:
+      - postgres
+      - keycloak
+      - grafana
+      - jaeger
+
+  snap-service:
+    container_name: snap-service
+    build:
+      context: ./snap-service
+      dockerfile: src/main/docker/Dockerfile.jvm
+    network_mode: host
+    depends_on:
+      - mongo
+      - keycloak
+      - grafana
+      - jaeger
+
+  avenger-generator:
+    container_name: avenger-generator
+    build:
+      context: ./avenger-generator
+      dockerfile: src/main/docker/Dockerfile.jvm
+    network_mode: host
+    depends_on:
+      - keycloak
+      - grafana
+      - jaeger
+
+  postgres:
+    image: postgres:14.0
+    container_name: postgres
+    network_mode: host
+    environment:
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data:Z
+
+  mongo:
+    image: mongo:6.0.2
+    container_name: mongo
+    network_mode: host
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ${HOME}/mongo-data:/data/db/:Z
+
+  prometheus:
+    image: prom/prometheus:v2.39.1
+    container_name: prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana:9.1.8
+    container_name: grafana
+    network_mode: host
+    depends_on:
+      - prometheus
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.38.1
+    container_name: jaeger
+#    ports:
+#      - "16686:16686"
+#      - "14268:14268"
+#      - "14250:14250"
+#      - "4317:4317"
+#      - "4318:4318"
+    network_mode: host
+    environment:
+      - "COLLECTOR_OTLP_ENABLED=true"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.0
+    container_name: keycloak
+    command: "start-dev --import-realm"
+    network_mode: host
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_HTTP_PORT=8180
+    volumes:
+      - ./quarkus-realm.json:/opt/keycloak/data/import/quarkus-realm.json:Z

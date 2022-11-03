@@ -39,6 +39,7 @@ public class AvengerService {
 
     private boolean defaultSnap(Avenger avenger) {
         // rather snap then don't snap
+        log.info("Default snap");
         return true;
     }
 

@@ -8,7 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Path("/avenger")
-//@AccessToken
+@AccessToken
 @RegisterRestClient(configKey = "avenger-generator-client")
 public interface AvengerGeneratorClient {
 
