@@ -2,6 +2,7 @@ package org.acme;
 
 import io.quarkus.runtime.ApplicationLifecycleManager;
 import io.quarkus.runtime.Quarkus;
+import io.quarkus.runtime.QuarkusApplication;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.client.Client;
@@ -32,7 +33,6 @@ public class GreetingResource {
     @GET
     @Path("/kill")
     public void kill() {
-        ApplicationLifecycleManager.exit();
         System.exit(0);
     }
 }
