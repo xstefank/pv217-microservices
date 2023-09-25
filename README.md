@@ -7,7 +7,7 @@
 
 ## Prerequisites
 
-- JDK 11+ (later preferred for more Java SE features)
+- JDK 17+ (later preferred for more Java SE features)
 - Maven 3.8.1+
 - Optionally (used in lectures) Quarkus CLI - https://quarkus.io/guides/cli-tooling
 - Docker or Podman
