@@ -16,7 +16,7 @@ If you want to use the quarkus CLI like in the lecture (maven plugin has the equ
 
 == 01 Your first Quarkus application
 
-*Quarkus guide -- https://quarkus.io/guides/getting-started
+*Quarkus guide -- https://quarkus.io/guides/getting-started*
 
 === Abbreviations explanations
 
@@ -38,15 +38,20 @@ If you want to use the quarkus CLI like in the lecture (maven plugin has the equ
 *** @Inject -- https://www.javacodegeeks.com/2013/05/java-ee-cdi-dependency-injection-inject-tutorial.html
 *** https://www.baeldung.com/java-ee-cdi
 
-* JSON-B -- JSON Binding
+* Jackson 
 ** https://quarkus.io/guides/rest-json
+** Prefered to handle JSONs in Quarkus
+** https://www.baeldung.com/jackson
+** https://www.tutorialspoint.com/jackson/index.htm
+
+* JSON-B -- JSON Binding (Optional)
 
 ** Tutorial - https://www.baeldung.com/java-json-binding-api
 *** in Quarkus you don't need anything else than quarkus-resteasy-jsonb extension
 ** Specification - https://github.com/eclipse-ee4j/jsonb-api
 ** http://json-b.net/
 
-* JSON-P -- JSON Processing
+* JSON-P -- JSON Processing (Optional)
 ** optional -- only if you need more granular access to JSON and you don't know the JSON format beforehand (should not be required in your projects)
 ** https://javaee.github.io/jsonp/getting-started.html
 ** Tutorial - https://www.baeldung.com/jee7-json
