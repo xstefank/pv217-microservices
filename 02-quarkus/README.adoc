@@ -64,6 +64,8 @@ If you want to use the quarkus CLI like in the lecture (maven plugin has the equ
 
 == 03 Docker/Podman
 
+*Quarkus guide -- https://quarkus.io/guides/container-image*
+
 Files in the `src/main/docker` directory.
 
 Tutorials:
@@ -71,8 +73,6 @@ Tutorials:
 * the one I did, great course worth the money - https://www.udemy.com/course/docker-mastery/
 ** (Udemy has sales that takes this down to 10-12 EUR)
 * https://www.tutorialspoint.com/docker/index.htm
-
-*Quarkus guide -- https://quarkus.io/guides/container-image*
 
 == 04 Kubernetes/Openshift deployment
 
