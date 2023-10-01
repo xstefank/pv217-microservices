@@ -13,6 +13,8 @@
 - Docker or Podman
 - docker-compose (https://docs.docker.com/compose/install/) or podman-compose (https://github.com/containers/podman-compose#installation)
 - Optionally for native compilations GraalVM or Mandrel - https://quarkus.io/guides/building-native-image#configuring-graalvm 
+- Optionally for local Kubernetes or OpenShift deployment - Minikube (https://minikube.sigs.k8s.io/docs/start/) or CRC (https://console.redhat.com/openshift/create/local)
+  - Not necessary since you can you can use public free Openshift instance from the Red Hat Developer Sandbox - https://developers.redhat.com/developer-sandbox
 
 Preffered OS is Linux or Mac. On Windows please use the WSL - https://cs.wikipedia.org/wiki/Windows_Subsystem_for_Linux
 
