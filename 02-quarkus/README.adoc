@@ -86,14 +86,3 @@ Tutorials:
 ** Kubernetes/Minikube - https://quarkus.io/guides/deploying-to-kubernetes
 ** Openshift/CRC - https://quarkus.io/guides/deploying-to-openshift
 
-=== Minikube additional comments
-
-==== Exposing NodePort in minikube
-
-[source,bash]
-----
-kubectl expose deployment kubernetes-quickstart --type=NodePort --name=k-e-nodeport
-minikube service list
-----
-
-This is added automatically with quarkus-minikube extension.
