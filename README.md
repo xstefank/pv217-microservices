@@ -1,9 +1,9 @@
 # pv217-microservices
 
 - 1st lecture - Microservices introduction
-- 2nd lecture - Introduction to Quarkus, HTTP, REST, Docker/Podman, and Kubernetes/Openshift
-- 3rd lecture - MicroProfile, Jakarta EE
-- 4th lecture - MicroProfile continued, Panache, reactive programming, (Kafka)
+- 2nd lecture - Introduction to Quarkus, HTTP, REST, Jakarta EE, Docker/Podman, and Kubernetes/Openshift
+- 3rd lecture - Data stores, Panache, MicroProfile
+- 4th lecture - MicroProfile continued, reactive programming (Kafka)
 
 ## Prerequisites
 

@@ -1,32 +1,92 @@
-= MicroProfile
+= Data stores and MicroProfile
 
 == Prerequisites
 
+== 01 DB utilization with Panache
+
+=== 01a Panache with the relational DB (PostgreSQL)
+
+* Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
+* JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
+
+To run PostgreSQL locally:
+
 [source,bash]
 ----
-docker pull prom/prometheus:v2.47.1
-docker pull grafana/grafana:9.5.12
+mkdir -p ${HOME}/postgres-data
+
+docker run --rm \
+        --name dev-postgres \
+        -e POSTGRES_PASSWORD=pass \
+        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
+        -p 5432:5432 \
+        postgres
 ----
 
-== 00 What is MicroProfile?
+And to connect the client:
+
+[source,bash]
+----
+psql -h localhost -U postgres -d pv217
+----
+
+=== 01b Panache with the NoSQL DB (MongoDB)
+
+Quarkus guide - https://quarkus.io/guides/mongodb-panache
+
+To run MongoDB locally:
+
+[source,bash]
+----
+docker run --rm \
+        --name dev-mongo \
+        -e MONGO_INITDB_ROOT_USERNAME=admin \
+        -e MONGO_INITDB_ROOT_PASSWORD=pass \
+        -v ${HOME}/mongo-data:/data/db/:Z \
+        -p 27017:27017 \
+        mongo
+----
+
+Connect client:
+
+[source,bash]
+----
+mongosh --port 40881 person
+----
+
+Your mongo properties in `application.properties` should be:
+
+[source,bash]
+----
+# configure the MongoDB client for a replica set of two nodes
+%prod.quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
+# mandatory if you don't specify the name of the database using @MongoEntity
+quarkus.mongodb.database=pv217
+----
+
+== 01c REST data Panache
+
+- Quarkus guide - https://quarkus.io/guides/rest-data-panache
+
+== 02 What is MicroProfile?
 
 https://microprofile.io/
 
 https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 
-== 01 MicroProfile Config
+== 03 MicroProfile Config
 
 * Quarkus guide - https://quarkus.io/guides/config
 * Spec - https://github.com/eclipse/microprofile-config
 * Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
 
-== 02 MicroProfile Health
+== 04 MicroProfile Health
 
 * Quarkus guide - https://quarkus.io/guides/microprofile-health
 * Spec - https://github.com/eclipse/microprofile-health
 * Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.asciidoc
 
-== 03 Micrometer (Metrics)
+== 05 Micrometer (Metrics)
 
 * Quarkus guide - https://quarkus.io/guides/micrometer
 * Website - https://micrometer.io/
@@ -36,7 +96,7 @@ https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
 [source,bash]
 ----.
 docker run --rm --name prometheus --network host \
--v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml:Z prom/prometheus:v2.47.1 \
+-v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml:Z prom/prometheus \
 --config.file=/etc/prometheus/prometheus.yml
 ----
 
@@ -46,29 +106,10 @@ Example prometheus.yml is available link:./prometheus.yml[here].
 
 [source,bash]
 ----
-docker run --rm -p 3000:3000 --network host grafana/grafana:9.5.12
+docker run --rm -p 3000:3000 --network host grafana/grafana
 ----
 
-== 04 MicroProfile JWT Auth
-
-* Quarkus guide - https://quarkus.io/guides/security-jwt
-* Spec - https://github.com/eclipse/microprofile-jwt-auth
-* Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
-
-**Advanced**
-
-* https://quarkus.io/guides/security-openid-connect
-* https://quarkus.io/guides/security-openid-connect-web-authentication
-* https://quarkus.io/guides/security-keycloak-authorization
-
-**Keycloak**
-
-[source,bash]
-----
-docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:19.0.3 start-dev
-----
-
-== 05 MicroProfile OpenAPI
+== 06 MicroProfile OpenAPI
 
 * Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
 * Spec - https://github.com/eclipse/microprofile-open-api
