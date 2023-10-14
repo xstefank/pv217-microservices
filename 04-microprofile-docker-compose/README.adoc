@@ -51,15 +51,6 @@ and to also remove them:
 $ docker-compose down --rmi
 ----
 
-NOTE: podman-compose 1.0.3 (latest stable) doesn't work with
-network_mode: host we use for prometheus and grafana. You need to install
-devel version 1.0.4:
-
-[source,bash]
-----
-pip3 install --user https://github.com/containers/podman-compose/archive/devel.tar.gz
-----
-
 == 04 OpenTelemetry (MP Telemetry Tracing)
 
 OpenTelemetry is successor of OpenTracing.
