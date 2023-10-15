@@ -58,195 +58,28 @@ OpenTelemetry is successor of OpenTracing.
 * Quarkus guide - https://quarkus.io/guides/opentelemetry
 * Website - https://opentelemetry.io/
 
-**otel-collector-config.yaml**
-
-[source,yaml]
-----
-receivers:
-  otlp:
-    protocols:
-      grpc:
-        endpoint: otel-collector:4317
-
-exporters:
-  jaeger:
-    endpoint: jaeger-all-in-one:14250
-    tls:
-      insecure: true
-
-processors:
-  batch:
-
-extensions:
-  health_check:
-
-service:
-  extensions: [health_check]
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [jaeger]
-----
-
 **docker-compose.yml**
 
 [source,yaml]
 ----
-version: "2"
+version: "3.8"
+
 services:
 
   # Jaeger
   jaeger-all-in-one:
     image: jaegertracing/all-in-one:latest
     ports:
-      - "16686:16686"
-      - "14268:14268"
-      - "14250:14250"
-  # Collector
-  otel-collector:
-    image: otel/opentelemetry-collector:latest
-    command: ["--config=/etc/otel-collector-config.yaml"]
-    volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml:Z
-    ports:
-      - "13133:13133" # Health_check extension
+      - "16686:16686" # Jaeger UI
+      - "14268:14268" # Receive legacy OpenTracing traces, optional
       - "4317:4317"   # OTLP gRPC receiver
-    depends_on:
-      - jaeger-all-in-one
+      - "4318:4318"   # OTLP HTTP receiver, not yet used by Quarkus, optional
+      - "14250:14250" # Receive from external otel-collector, optional
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
 ----
 
-== 05 DB utilization with Panache
+== 05 Security with MicroProfile JWT
 
-=== 05a Panache with the relational DB (PostgreSQL)
-
-* Quarkus guide - https://quarkus.io/guides/hibernate-orm-panache
-* JavaDoc - https://javadoc.io/doc/io.quarkus/quarkus-hibernate-orm-panache/latest/index.html
-
-To run PostgreSQL locally:
-
-[source,bash]
-----
-mkdir -p ${HOME}/postgres-data
-
-docker run --rm \
-        --name dev-postgres \
-        -e POSTGRES_PASSWORD=pass \
-        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
-        -p 5432:5432 \
-        postgres:14.0
-----
-
-And to connect the client:
-
-[source,bash]
-----
-psql -h localhost -U postgres -d pv217
-----
-
-==== Testing (Not required with Dev Services)
-
-Add following dependencies:
-
-[source,java]
-----
-<dependency>
-  <groupId>io.quarkus</groupId>
-  <artifactId>quarkus-panache-mock</artifactId>
-  <scope>test</scope>
-</dependency>
-<dependency>
-  <groupId>io.quarkus</groupId>
-  <artifactId>quarkus-test-h2</artifactId>
-  <scope>test</scope>
-</dependency>
-<dependency>
-  <groupId>io.quarkus</groupId>
-  <artifactId>quarkus-jdbc-h2</artifactId>
-  <scope>test</scope>
-</dependency>
-----
-
-Note for repository pattern use this instead of `quarkus-panache-mock`:
-
-[source,java]
-----
-<dependency>
-  <groupId>io.quarkus</groupId>
-  <artifactId>quarkus-junit5-mockito</artifactId>
-  <scope>test</scope>
-</dependency>
-----
-
-And following configuration:
-
-[source,bash]
-----
-%test.quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:test
-%test.quarkus.datasource.db-kind=h2
-----
-
-And to your `@QuarkusTest` class add:
-
-[source,java]
-----
-@QuarkusTest
-@QuarkusTestResource(H2DatabaseTestResource.class)
-----
-
-This will configure embedded H2 database for tests.
-
-=== 05b Panache with the NoSQL DB (MongoDB)
-
-Quarkus guide - https://quarkus.io/guides/mongodb-panache
-
-To run MongoDB locally:
-
-[source,bash]
-----
-docker run --rm \
-        --name dev-mongo \
-        -e MONGO_INITDB_ROOT_USERNAME=admin \
-        -e MONGO_INITDB_ROOT_PASSWORD=pass \
-        -v ${HOME}/mongo-data:/data/db/:Z \
-        -p 27017:27017 \
-        mongo:6.0.2
-----
-
-Connect client:
-
-[source,bash]
-----
-mongosh -u admin -p pass --authenticationDatabase admin pv217
-
-# Dev Services (name of your db)
-mongosh --port 40881 person
-----
-
-Your mongo properties in `application.properties` should be:
-
-[source,bash]
-----
-# configure the MongoDB client for a replica set of two nodes
-%prod.quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
-# mandatory if you don't specify the name of the database using @MongoEntity
-quarkus.mongodb.database=pv217
-----
-
-**Testing**
-
-Utilize Dev Services to start the Mongo DB in background during tests.
-
-== 99 OPTIONAL ------------------
-
-== 06 MP OpenTracing
-
-* Quarkus guide - https://quarkus.io/guides/opentracing
-* Spec - https://github.com/eclipse/microprofile-opentracing
-* Spec doc - https://github.com/eclipse/microprofile-opentracing/blob/master/spec/src/main/asciidoc/microprofile-opentracing-spec.asciidoc
-
-== 07 REST data Panache
-
-- Quarkus guide - https://quarkus.io/guides/rest-data-panache
 
 
