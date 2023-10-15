@@ -81,5 +81,20 @@ services:
 
 == 05 Security with MicroProfile JWT
 
+* Quarkus guide - https://quarkus.io/guides/security-jwt
+* Spec - https://github.com/eclipse/microprofile-jwt-auth
+* Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
+
+**Advanced**
+
+* https://quarkus.io/guides/security-openid-connect
+* https://quarkus.io/guides/security-keycloak-authorization
+
+**Keycloak**
+
+[source,bash]
+----
+docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:19.0.3 start-dev
+----
 
 
