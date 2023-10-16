@@ -81,11 +81,21 @@ services:
 
 == 05 Security with MicroProfile JWT
 
-* Quarkus guide - https://quarkus.io/guides/security-jwt
+* Quarkus guide OIDC - https://quarkus.io/guides/security-openid-connect-providers
+
+* Quarkus guide JWT - https://quarkus.io/guides/security-jwt
 * Spec - https://github.com/eclipse/microprofile-jwt-auth
 * Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
 
-**Advanced**
+**Additional**
+
+* https://quarkus.io/guides/security-oidc-code-flow-authentication
+* https://quarkus.io/guides/security-openid-connect-providers
+
+
+* https://quarkus.io/guides/security-oidc-bearer-token-authentication-tutorial
+* https://quarkus.io/guides/security-oidc-bearer-token-authentication
+
 
 * https://quarkus.io/guides/security-openid-connect
 * https://quarkus.io/guides/security-keycloak-authorization
