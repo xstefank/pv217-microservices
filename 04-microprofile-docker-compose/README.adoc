@@ -81,7 +81,7 @@ services:
 
 == 05 Security with MicroProfile JWT
 
-* Quarkus guide OIDC - https://quarkus.io/guides/security-openid-connect-providers
+* Quarkus guide OIDC - https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial
 
 * Quarkus guide JWT - https://quarkus.io/guides/security-jwt
 * Spec - https://github.com/eclipse/microprofile-jwt-auth
@@ -91,11 +91,9 @@ services:
 
 * https://quarkus.io/guides/security-oidc-code-flow-authentication
 * https://quarkus.io/guides/security-openid-connect-providers
-
-
+ 
 * https://quarkus.io/guides/security-oidc-bearer-token-authentication-tutorial
 * https://quarkus.io/guides/security-oidc-bearer-token-authentication
-
 
 * https://quarkus.io/guides/security-openid-connect
 * https://quarkus.io/guides/security-keycloak-authorization
@@ -104,7 +102,7 @@ services:
 
 [source,bash]
 ----
-docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:19.0.3 start-dev
+docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak start-dev
 ----
 
 
