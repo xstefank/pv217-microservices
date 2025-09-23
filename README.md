@@ -1,4 +1,4 @@
-# pv217-microservices
+# pv217-microservices Autumn 2025
 
 - 1st lecture - Microservices introduction
 - 2nd lecture - Introduction to Quarkus, HTTP, REST, Jakarta EE, Docker/Podman, and Kubernetes/Openshift
