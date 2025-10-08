@@ -30,5 +30,13 @@ public class GreetingResource {
         return Person.listAll();
     }
 
+    @GET
+    @Path("/delete")
+    public void delete() {
+        Person.deleteAll();
+    }
+
+
+
 
 }

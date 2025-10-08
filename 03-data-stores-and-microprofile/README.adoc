@@ -35,8 +35,6 @@ To run MongoDB locally:
 ----
 docker run --rm \
         --name dev-mongo \
-        -e MONGO_INITDB_ROOT_USERNAME=admin \
-        -e MONGO_INITDB_ROOT_PASSWORD=pass \
         -v ${HOME}/mongo-data:/data/db/:Z \
         -p 27017:27017 \
         mongo
@@ -56,7 +54,7 @@ Your mongo properties in `application.properties` should be:
 # configure the MongoDB client for a replica set of two nodes
 %prod.quarkus.mongodb.connection-string=mongodb://admin:pass@localhost:27017
 # mandatory if you don't specify the name of the database using @MongoEntity
-quarkus.mongodb.database=pv217
+quarkus.mongodb.database=quarkus
 ----
 
 == 01c REST data Panache
