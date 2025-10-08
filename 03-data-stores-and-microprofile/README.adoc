@@ -15,19 +15,14 @@ To run PostgreSQL locally:
 ----
 mkdir -p ${HOME}/postgres-data
 
-docker run --rm \
-        --name dev-postgres \
-        -e POSTGRES_PASSWORD=pass \
-        -v ${HOME}/postgres-data/:/var/lib/postgresql/data:Z \
-        -p 5432:5432 \
-        postgres
+docker run -it --rm=true --name database -p 5432:5432 -e POSTGRES_USER=quarkus -e POSTGRES_PASSWORD=quarkus -e POSTGRES_DB=quarkus postgres
 ----
 
 And to connect the client:
 
 [source,bash]
 ----
-psql -h localhost -U postgres -d pv217
+psql -h localhost -U quarkus -d quarkus
 ----
 
 === 01b Panache with the NoSQL DB (MongoDB)
