@@ -1,0 +1,108 @@
+= Remote calls, Security, and Docker compose
+
+== 01 JAX-RS/MicroProfile REST client
+
+* JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+
+* Quarkus guide - https://quarkus.io/guides/rest-client
+* Spec - https://github.com/eclipse/microprofile-rest-client
+* Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
+
+== 02 MicroProfile Fault Tolerance
+
+* Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+* Spec - https://github.com/eclipse/microprofile-fault-tolerance
+* Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
+
+== 03 Docker compose (Podman compose)
+
+In this directory you can find a file named `docker-compose.yml`.
+https://docs.docker.com/compose/[Docker-compose] is a tool that allows you
+to specify several containers that can be started/stopped/managed as a
+single unit with single command. So for instance, you can run following
+commands in the same directory where the `docker-compose.yml` is to:
+
+* start all defined containers:
+[source,bash]
+----
+$ docker-compose up
+----
+The logs will be all available the same terminal.
+
+* start all containers in the background:
+[source,bash]
+----
+$ docker-compose up -d
+----
+To get logs you can call docker or docker-compose:
+[source,bash]
+----
+$ docker logs -f <container>
+----
+
+* to stop all containers:
+[source,bash]
+----
+$ docker-compose down
+----
+and to also remove them:
+[source,bash]
+----
+$ docker-compose down --rmi
+----
+
+== 04 OpenTelemetry (MP Telemetry Tracing)
+
+OpenTelemetry is successor of OpenTracing.
+
+* Quarkus guide - https://quarkus.io/guides/opentelemetry
+* Website - https://opentelemetry.io/
+
+**docker-compose.yml**
+
+[source,yaml]
+----
+version: "3.8"
+
+services:
+
+  # Jaeger
+  jaeger-all-in-one:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686" # Jaeger UI
+      - "14268:14268" # Receive legacy OpenTracing traces, optional
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver, not yet used by Quarkus, optional
+      - "14250:14250" # Receive from external otel-collector, optional
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+----
+
+== 05 Security with MicroProfile JWT
+
+* Quarkus guide OIDC - https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial
+
+* Quarkus guide JWT - https://quarkus.io/guides/security-jwt
+* Spec - https://github.com/eclipse/microprofile-jwt-auth
+* Spec doc - https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/microprofile-jwt-auth-spec.asciidoc
+
+**Additional**
+
+* https://quarkus.io/guides/security-oidc-code-flow-authentication
+* https://quarkus.io/guides/security-openid-connect-providers
+ 
+* https://quarkus.io/guides/security-oidc-bearer-token-authentication-tutorial
+* https://quarkus.io/guides/security-oidc-bearer-token-authentication
+
+* https://quarkus.io/guides/security-openid-connect
+* https://quarkus.io/guides/security-keycloak-authorization
+
+**Keycloak**
+
+[source,bash]
+----
+docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak start-dev
+----
+
+
