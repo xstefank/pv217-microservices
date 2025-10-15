@@ -79,7 +79,7 @@ services:
       - COLLECTOR_OTLP_ENABLED=true
 ----
 
-== 05 Security with MicroProfile JWT
+== 05 Security
 
 * Quarkus guide OIDC - https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial
 
