@@ -3,6 +3,7 @@ package io.xstefank;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.quarkus.logging.Log;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -30,6 +31,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Retry(maxRetries = 10, delay = 1000)
+    @RolesAllowed("admin")
     public String hello() {
         Log.info("Invocation #" + counter.getAndIncrement());
 

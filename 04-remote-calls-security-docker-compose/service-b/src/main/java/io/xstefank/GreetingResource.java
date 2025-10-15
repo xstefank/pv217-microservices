@@ -1,5 +1,6 @@
 package io.xstefank;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.Path;
@@ -14,4 +15,13 @@ public class GreetingResource {
     public String hello(@HeaderParam("test-header") String headerValue) {
         return "Hello from Service B!!! Header value: " + headerValue;
     }
+
+    @RolesAllowed("admin")
+    @GET
+    @Path("/auth")
+    public String auth() {
+        return "Hello from Service B!!!";
+    }
+
+
 }
