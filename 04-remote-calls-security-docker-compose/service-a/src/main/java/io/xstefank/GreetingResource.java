@@ -1,6 +1,9 @@
 package io.xstefank;
 
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.Tracer;
 import io.quarkus.logging.Log;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -18,11 +21,37 @@ public class GreetingResource {
     @RestClient
     ServiceBClient serviceBClient;
 
+    @Inject
+    ProcessingBean bean;
+
+    @Inject
+    Tracer tracer;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Retry(maxRetries = 10, delay = 1000)
     public String hello() {
         Log.info("Invocation #" + counter.getAndIncrement());
+
+        Span span1 = tracer.spanBuilder("first-span")
+            .setAttribute("custom-attribute", "value")
+            .startSpan();
+
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        span1.end();
+
+        bean.process("test");
+
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         String messageFromServiceB = serviceBClient.hello("what-do-we-have-here");
 
