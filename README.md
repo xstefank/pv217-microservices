@@ -1,4 +1,4 @@
-# pv217-microservices Autumn 2025
+# pv217-microservices Autumn 2026
 
 - 1st lecture - Microservices introduction
 - 2nd lecture - Introduction to Quarkus, HTTP, REST, Jakarta EE, Docker/Podman, and Kubernetes/Openshift
@@ -8,7 +8,7 @@
 ## Prerequisites
 
 - JDK 17+ (later preferred for more Java SE features)
-- Maven 3.8.1+
+- Maven 3.9.16+
 - Optionally (used in lectures) Quarkus CLI - https://quarkus.io/guides/cli-tooling
 - Docker or Podman
 - docker-compose (https://docs.docker.com/compose/install/) or podman-compose (https://github.com/containers/podman-compose#installation)
