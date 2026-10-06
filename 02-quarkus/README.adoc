@@ -60,7 +60,45 @@ If you want to use the quarkus CLI like in the lecture (maven plugin has the equ
 
 *Quarkus guide -- https://quarkus.io/guides/building-native-image*
 
-== 03 Docker/Podman
+== 03 What is MicroProfile?
+
+https://microprofile.io/
+
+https://www.youtube.com/watch?v=I2l3-6zpKDE&t=2s&ab_channel=DevConf
+
+== 04 MicroProfile Config
+
+* Quarkus guide - https://quarkus.io/guides/config
+* Spec - https://github.com/eclipse/microprofile-config
+* Spec doc - https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/microprofile-config-spec.asciidoc
+
+== 05 MicroProfile OpenAPI
+
+* Quarkus guide - https://quarkus.io/guides/openapi-swaggerui
+* Spec - https://github.com/eclipse/microprofile-open-api
+* Spec doc - https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.asciidoc
+
+== 05 MicroProfile Health
+
+* Quarkus guide - https://quarkus.io/guides/microprofile-health
+* Spec - https://github.com/eclipse/microprofile-health
+* Spec doc - https://github.com/eclipse/microprofile-health/blob/master/spec/src/main/asciidoc/microprofile-health-spec.asciidoc
+
+== 06 JAX-RS/MicroProfile REST client
+
+* JAX-RS classic client - Tutorial - https://docs.jboss.org/resteasy/docs/3.0-beta-3/userguide/html/RESTEasy_Client_Framework.html
+
+* Quarkus guide - https://quarkus.io/guides/rest-client
+* Spec - https://github.com/eclipse/microprofile-rest-client
+* Spec doc - https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/microprofile-rest-client-spec.asciidoc
+
+== 07 MicroProfile Fault Tolerance
+
+* Quarkus guide - https://quarkus.io/guides/microprofile-fault-tolerance
+* Spec - https://github.com/eclipse/microprofile-fault-tolerance
+* Spec doc - https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc
+
+== 08 Docker/Podman
 
 *Quarkus guide -- https://quarkus.io/guides/container-image*
 
@@ -72,7 +110,7 @@ Tutorials:
 ** (Udemy has sales that takes this down to 10-12 EUR)
 * https://www.tutorialspoint.com/docker/index.htm
 
-== 04 Kubernetes/Openshift deployment
+== 09 Kubernetes/Openshift deployment
 
 . Start Minikube or CRC on your local machine
 ** https://minikube.sigs.k8s.io/docs/start/
