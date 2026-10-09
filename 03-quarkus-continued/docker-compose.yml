@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: dev-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - ${HOME}/postgres-data/:/var/lib/postgresql/data:Z
+
+  mongodb:
+    image: mongo
+    container_name: dev-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    volumes:
+      - ${HOME}/mongo-data:/data/db/:Z
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command: "--config.file=/etc/prometheus/prometheus.yml"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:Z
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    network_mode: host
+
+  jaeger-all-in-one:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686" # Jaeger UI
+      - "14268:14268" # Receive legacy OpenTracing traces, optional
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver, not yet used by Quarkus, optional
+      - "14250:14250" # Receive from external otel-collector, optional
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+
+#  # my service
+#  avenger-service:
+#    build:
+#      context: ./avenger-service
+#      dockerfile: src/main/docker/Dockerfile.jvm
+#    container_name: avenger-service
+#    depends_on:
+#      - postgres
+#    ports:
+#      - "8080:8080"
+#
