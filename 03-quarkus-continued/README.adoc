@@ -140,8 +140,6 @@ services:
 docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak start-dev
 ----
 
-= Additional materials
-
 == 06 MP Reactive messaging & Apache Kafka
 
 * Quarkus guide - https://quarkus.io/guides/kafka-reactive-getting-started
