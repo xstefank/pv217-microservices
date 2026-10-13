@@ -1,6 +1,7 @@
 package io.xstefank;
 
 import io.smallrye.config.Config;
+import io.xstefank.health.TriggerHealthCheck;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -11,6 +12,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.health.Liveness;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +31,10 @@ public class GreetingResource {
 
     @ConfigProperty(name = "test.prop")
     Optional<String> testProp;
+
+    @Inject
+    @Liveness
+    TriggerHealthCheck triggerHealthCheck;
 
     @GET
     @Path("/{id}/whatever")
@@ -49,5 +55,11 @@ public class GreetingResource {
     public String helloSimple() {
         System.out.println("Service A called");
         return "Hello from PV217";
+    }
+
+    @GET
+    @Path("/toggle-up")
+    public void toggleUp() {
+        triggerHealthCheck.toggleUp();
     }
 }
