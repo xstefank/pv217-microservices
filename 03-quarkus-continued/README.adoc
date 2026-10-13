@@ -112,7 +112,8 @@ services:
 
 == 05 Security
 
-- Quarkus Security Overview - https://quarkus.io/guides/security-overview/
+* Quarkus Security Overview - https://quarkus.io/guides/security-overview/
+* Quarkus guire OIDC web app - https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial/
 * Quarkus guide OIDC - https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial
 * Quarkus guide OIDC client and token propagation - https://quarkus.io/guides/security-openid-connect-client
 * Quarkus guide Keycloak Devservices - https://quarkus.io/guides/security-openid-connect-dev-services
