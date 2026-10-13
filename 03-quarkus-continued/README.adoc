@@ -1,4 +1,4 @@
-= Introduction to Quarkus
+= Quarkus continued
 
 == 01 DB utilization with Panache
 
